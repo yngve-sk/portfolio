@@ -2,12 +2,15 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./pages/Home.vue";
 import Portfolio from "./pages/Portfolio.vue";
+import Presentation from "./pages/Presentation.vue";
 import About from "./pages/About.vue";
+
 import SplitStreams from "./pages/SplitStreams.vue";
 import Visavis from "./pages/Visavis.vue";
 import OLD from "./pages/OLD.vue";
 import Master from "./pages/Master.vue";
 import Macula from "./pages/Macula.vue";
+import Future from "./pages/Future.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -20,6 +23,14 @@ export default new Router({
     {
       path: "/portfolio",
       component: Portfolio
+    },
+    {
+      path: "/presentation",
+      component: Presentation
+    },
+    {
+      path: "/about",
+      component: About
     },
     {
       path: "/portfolio/splitstreams",
@@ -42,8 +53,8 @@ export default new Router({
       component: Macula
     },
     {
-      path: "/about",
-      component: About
+      path: "/portfolio/future",
+      component: Future
     }
   ]
   // mode: 'history'

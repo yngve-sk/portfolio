@@ -1,5 +1,5 @@
 <template>
-  <v-flex ma-6>
+  <v-flex ma-6 height="auto">
     <v-card dark width="100%">
       <v-container fluid>
         <v-row justify="space-around">

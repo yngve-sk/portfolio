@@ -1,8 +1,7 @@
 <template>
   <v-container id="home-container" v-resize="onResize" pa-0 fluid>
-    <v-layout class="wrapper" :style="{width: contentSize.x, height: contentSize.y}">
-      <v-flex id="imageContainer" :style="{marginLeft: imageX}">
-        <!-- <v-card style="background-color:red" height="100%" width="100%" /> -->
+    <div class="wrapper" :style="{width: contentSize.x, height: contentSize.y}">
+      <div id="imageContainer" :style="{marginLeft: imageX}">
         <img
           id="profileImage"
           :src="`./assets/images/profile-reduced.svg`"
@@ -16,8 +15,20 @@
           alt="animated edges of profile image"
           style="height: 100%"
         />
+      </div>
+      <v-flex
+        id="linkWrapper"
+        class="d-flex flex-column justify-space-around"
+        pl-xs-0
+        pl-sm-4
+        pl-md-8
+        pl-lg-12
+      >
+        <v-card class="pageLink" v-for="(page, i) in pages" :key="i">
+          <v-btn :to="page.link" elevation="24">{{page.name}}</v-btn>
+        </v-card>
       </v-flex>
-    </v-layout>
+    </div>
   </v-container>
 </template>
 
@@ -53,17 +64,24 @@ export default {
       y: 0
     },
     imageX: 0,
-    imageAspectRatio: 0
+    imageAspectRatio: 0,
+    pages: [
+      {
+        name: 'Portfolio',
+        link: '/portfolio'
+      },
+      {
+        name: 'Presentation',
+        link: '/presentation'
+      }
+      // {
+      //   name: 'About',
+      //   link: '/about'
+      // }
+    ]
   }),
-  beforeMount() {},
   mounted() {
     initProfile();
-    animateProfile();
-  },
-  beforeUpdate() {
-    initProfile();
-  },
-  updated() {
     animateProfile();
   },
   methods: {
@@ -100,7 +118,27 @@ export default {
 .wrapper {
   background-color: rgb(44, 30, 27);
   /* background-image: linear-gradient(rgb(44, 30, 27), black); */
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
+}
+
+#linkWrapper {
+  flex: 10;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  height: 22%;
+  width: 100%;
+}
+.pageLink {
+  width: fit-content;
+  min-width: fit-content;
+}
+
+.pageLink .v-btn {
+  background-color: #454545 !important;
+  border-left: 7px solid rgb(44, 30, 27);
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
 }
 </style>

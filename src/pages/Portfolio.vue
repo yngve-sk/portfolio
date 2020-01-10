@@ -11,7 +11,7 @@
             :lazy-src="project.image.placeholder"
           >
             <template v-slot:placeholder>
-              <v-row align-center justify-center ma-0>
+              <v-row align="center" justify="center" ma-0>
                 <v-progress-circular indeterminate color="grey"></v-progress-circular>
               </v-row>
             </template>
@@ -107,26 +107,4 @@ export default {
 </script>
 
 <style scoped>
-.v-expansion-panel {
-  height: 33%;
-}
-.v-expansion-panel-header {
-  height: 100%;
-}
-.layout {
-  height: 100%;
-}
-
-.v-card {
-  display: inline-block;
-  height: 50%;
-}
-.v-card > .layout > .flex {
-  float: left;
-  height: 100%;
-}
-
-.v-card img {
-  height: 100%;
-}
 </style>

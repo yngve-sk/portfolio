@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <!-- <v-navigation-drawer app /> -->
-    <toolbar title="Fabian Bolte" />
-    <v-content dark>
+    <navigation :showNav="navIsShown" />
+    <toolbar title="Fabian Bolte" @menuButtonClicked="showMenu" />
+    <v-content dark fill-height>
       <transition
         :name="transitionName"
         @before-leave="beforeLeave"
@@ -17,45 +17,47 @@
 </template>
 
 <script>
-import Toolbar from './components/Toolbar.vue';
-import FooterComponent from './components/FooterComponent.vue';
 import Breadcrumbs from './components/Breadcrumbs.vue';
+import FooterComponent from './components/FooterComponent.vue';
+import Navigation from './components/Navigation.vue';
+import Toolbar from './components/Toolbar.vue';
 
 export default {
   components: {
     Breadcrumbs,
-    Toolbar,
-    FooterComponent
+    FooterComponent,
+    Navigation,
+    Toolbar
   },
   data() {
     return {
       prevHeight: 0,
-      transitionName: 'slide-left'
+      transitionName: 'slide-left',
+      navIsShown: true
     };
   },
   created() {
     this.$router.beforeEach((to, from, next) => {
-      const toDepth = to.path.split('/').length;
-      const fromDepth = from.path.split('/').length;
-      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+      const toPath = to.path.split('/');
+      const fromPath = from.path.split('/');
+      // remove trailing empty string
+      if (toPath[toPath.length - 1] == '') toPath.pop();
+      if (fromPath[fromPath.length - 1] == '') fromPath.pop();
+      // compare path depth
+      this.transitionName =
+        toPath.length < fromPath.length ? 'slide-right' : 'slide-left';
       next();
     });
   },
   methods: {
-    beforeLeave(element) {
-      this.prevHeight = getComputedStyle(element).height;
+    showMenu() {
+      this.navIsShown = !this.navIsShown;
     },
+    beforeLeave(element) {},
     enter(element) {
-      const { height } = getComputedStyle(element);
-      element.style.height = this.prevHeight;
-
-      setTimeout(() => {
-        element.style.height = height;
-      });
+      document.querySelector('body').scrollTop = 0;
     },
-    afterEnter(element) {
-      element.style.height = 'auto';
-    }
+    afterEnter(element) {}
   },
   computed: {
     breadcrumbs() {
@@ -73,7 +75,9 @@ export default {
   transition-duration: 0.4s;
   transition-property: transform;
   /* transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1); */
-  position: absolute; /* makes sure that content is next to each other during the slide animation */
+
+  /* makes sure that content is next to each other during the slide animation */
+  position: absolute;
 }
 
 .slide-left-enter,

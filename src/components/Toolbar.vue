@@ -7,13 +7,14 @@
       </router-link>
     </v-toolbar-title>
     <v-spacer />
-    <v-btn icon>
+    <v-btn icon href="https://github.com/cadanox" target="_blank">
       <v-icon icon>mdi-github-circle</v-icon>
     </v-btn>
-    <v-btn icon>
+    <v-btn icon href="mailto:fabian.bolte@web.de">
       <v-icon icon>email</v-icon>
     </v-btn>
-    <v-app-bar-nav-icon />
+    <v-app-bar-nav-icon @click="menuButtonClicked" />
+
     <template v-slot:extension>
       <breadcrumbs />
       <!-- <v-tabs fixed-tabs>
@@ -36,6 +37,11 @@ export default {
     title: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    menuButtonClicked() {
+      this.$emit('menuButtonClicked');
     }
   }
 };
