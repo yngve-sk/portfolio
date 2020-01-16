@@ -73,11 +73,11 @@ export default {
       {
         name: 'Presentation',
         link: '/presentation'
+      },
+      {
+        name: 'About',
+        link: '/about'
       }
-      // {
-      //   name: 'About',
-      //   link: '/about'
-      // }
     ]
   }),
   mounted() {
@@ -140,5 +140,6 @@ export default {
   border-left: 7px solid rgb(44, 30, 27);
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
+  position: static !important;
 }
 </style>

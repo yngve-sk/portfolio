@@ -48,7 +48,6 @@ export default {
 <style scoped>
 .videoWrapper {
   padding-top: 56.25%;
-  background-color: yellow;
   position: relative;
 }
 .video {
