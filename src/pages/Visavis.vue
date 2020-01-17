@@ -2,6 +2,7 @@
   <project-component :title="title" :image="image" :description="description">
     <div>
       <p>
+        <youtube class="float-right" src="https://www.youtube-nocookie.com/embed/5OaZKX7-9UE" />
         The following features are provided:
         <ul>
           <li>Web-based IDE</li>
@@ -35,8 +36,9 @@
 
 <script>
 import ProjectComponent from '../components/ProjectComponent.vue';
+import Youtube from '../components/Youtube.vue';
 export default {
-  components: { ProjectComponent },
+  components: { ProjectComponent, Youtube },
   data() {
     return {
       title: 'Vis-a-Vis',

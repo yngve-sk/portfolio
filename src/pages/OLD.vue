@@ -4,7 +4,7 @@
       <p>
       The web-based control interface enables many of the following features:
       <ul>
-        <li>Resding of sensor measurements</li>
+        <li>Reading of sensor measurements</li>
         <li>
           Definition of optimal, acceptable, and critical ranges for each
           individual measurement

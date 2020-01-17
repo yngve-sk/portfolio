@@ -1,7 +1,7 @@
 <template>
   <v-container fluid grid-list-lg mt-n2>
-    <v-row row wrap justify-center pa-6 ma-0>
-      <v-col v-for="(project, i) in projects" :key="i" :xs="12" :sm="6" :md="4">
+    <v-row justify-center pa-6 ma-0>
+      <v-col v-for="(project, i) in projects" :key="i" cols="12" sm="6" md="4">
         <v-card :to="'/portfolio/' + project.link" width="100%" height="100%" dark hover>
           <v-img
             contain

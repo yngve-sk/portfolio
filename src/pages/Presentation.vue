@@ -9,15 +9,7 @@
               <v-card-text class="text-justify" v-text="description" />
             </v-col>
             <v-col cols="5">
-              <div class="videoWrapper">
-                <iframe
-                  class="video"
-                  src="https://www.youtube-nocookie.com/embed/Q4MAgDZn0Sw"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
+              <youtube flex src="https://www.youtube-nocookie.com/embed/Q4MAgDZn0Sw" />
             </v-col>
           </v-row>
           <v-divider dark />
@@ -33,7 +25,11 @@
 </template>
 
 <script>
+import Youtube from '../components/Youtube.vue'
 export default {
+  components: {
+    Youtube
+  },
   data: () => {
     return {
       title: 'Presentation',
@@ -46,15 +42,4 @@ export default {
 </script>
 
 <style scoped>
-.videoWrapper {
-  padding-top: 56.25%;
-  position: relative;
-}
-.video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 </style>

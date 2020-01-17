@@ -13,13 +13,13 @@
     <v-divider></v-divider>
 
     <v-list dense>
-      <v-list-item v-for="page in pages" :key="page.title" :to="page.link" link>
+      <v-list-item v-for="page in pages" :key="page.name" :to="page.link" link>
         <v-list-item-icon>
           <v-icon>{{ page.icon }}</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ page.title }}</v-list-item-title>
+          <v-list-item-title>{{ page.name }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -38,19 +38,29 @@ export default {
     show: false,
     pages: [
       {
-        title: 'Home',
+        name: 'Home',
         icon: 'home',
         link: '/'
       },
       {
-        title: 'Portfolio',
+        name: 'Portfolio',
         icon: 'mdi-book-open-variant',
         link: '/portfolio'
       },
       {
-        title: 'Presentation',
-        icon: 'mdi-youtube-tv',
+        name: 'Publications',
+        icon: 'mdi-newspaper',
+        link: '/Publications'
+      },
+      {
+        name: 'Presentation',
+        icon: 'mdi-presentation',
         link: '/presentation'
+      },
+      {
+        name: 'About',
+        icon: 'mdi-information-variant',
+        link: '/about'
       }
     ]
   }),

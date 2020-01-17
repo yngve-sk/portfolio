@@ -25,7 +25,9 @@
         pl-lg-12
       >
         <v-card class="pageLink" v-for="(page, i) in pages" :key="i">
-          <v-btn :to="page.link" elevation="24">{{page.name}}</v-btn>
+          <v-btn :to="page.link" elevation="24">
+            <v-icon class="mr-3">{{page.icon}}</v-icon>{{page.name}}
+          </v-btn>
         </v-card>
       </v-flex>
     </div>
@@ -33,21 +35,26 @@
 </template>
 
 <script>
+
 function initProfile() {
-  document.querySelector('#profileImage').style.transition = 'none';
-  document.querySelector('#profileImage').style.opacity = 0;
-  document.querySelector('#profileImageStrokes').style.transition = 'none';
-  document.querySelector('#profileImageStrokes').style.opacity = 1;
+  let profileImage = document.querySelector('#profileImage');
+  let imageStrokes = document.querySelector('#profileImageStrokes');
+  profileImage.style.transition = 'none';
+  profileImage.style.opacity = 0;
+  imageStrokes.style.transition = 'none';
+  imageStrokes.style.opacity = 1;
 }
 function animateProfile() {
+  let profileImage = document.querySelector('#profileImage');
+  let imageStrokes = document.querySelector('#profileImageStrokes');
   setTimeout(() => {
-    document.querySelector('#profileImage').style.transition = 'opacity 3s';
-    document.querySelector('#profileImage').style.opacity = 1;
+    profileImage.style.transition = 'opacity 3s';
+    profileImage.style.opacity = 1;
   }, 2000);
   setTimeout(() => {
-    document.querySelector('#profileImageStrokes').style.transition =
+    imageStrokes.style.transition =
       'opacity 3s';
-    document.querySelector('#profileImageStrokes').style.opacity = 0;
+    imageStrokes.style.opacity = 0;
   }, 3000);
 }
 
@@ -68,14 +75,22 @@ export default {
     pages: [
       {
         name: 'Portfolio',
+        icon: 'mdi-book-open-variant',
         link: '/portfolio'
       },
       {
+        name: 'Publications',
+        icon: 'mdi-newspaper',
+        link: '/Publications'
+      },
+      {
         name: 'Presentation',
+        icon: 'mdi-presentation',
         link: '/presentation'
       },
       {
         name: 'About',
+        icon: 'mdi-information-variant',
         link: '/about'
       }
     ]
@@ -126,8 +141,8 @@ export default {
   flex: 10;
   position: absolute;
   left: 10%;
-  top: 50%;
-  height: 22%;
+  top: 40%;
+  height: 30%;
   width: 100%;
 }
 .pageLink {

@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./pages/Home.vue";
 import Portfolio from "./pages/Portfolio.vue";
+import Publications from "./pages/Publications.vue";
 import Presentation from "./pages/Presentation.vue";
 import About from "./pages/About.vue";
 
@@ -23,6 +24,10 @@ export default new Router({
     {
       path: "/portfolio",
       component: Portfolio
+    },
+    {
+      path: "/publications",
+      component: Publications
     },
     {
       path: "/presentation",
