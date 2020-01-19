@@ -1,5 +1,5 @@
 <template>
-  <div class="videoWrapper" :class="{flex: flex}">
+  <div class="videoWrapper" :class="{ flex: flex }">
     <iframe
       class="video"
       :src="src"
@@ -11,7 +11,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     src: {
@@ -24,7 +23,7 @@ export default {
   },
   methods: {
     menuButtonClicked() {
-      this.$emit('menuButtonClicked');
+      this.$emit("menuButtonClicked");
     }
   }
 };
@@ -39,6 +38,7 @@ export default {
 }
 .videoWrapper.flex {
   width: auto;
+  height: auto;
   padding-top: 56.25%;
 }
 
