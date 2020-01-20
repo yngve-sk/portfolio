@@ -9,7 +9,8 @@
           <v-col cols="10">
             <v-row justify="space-around">
               <v-col cols="12" md="6" class="pr-md-6">
-                <v-card-text class="text-justify pa-0" v-text="description" />
+                <v-card-text v-if="description" class="text-justify pa-0" v-text="description" />
+                <v-card-text v-else-if="descriptionHTML" class="text-justify pa-0" v-html="descriptionHTML" />
               </v-col>
               <v-col cols="12" md="6">
                 <youtube v-if="video" :src="video" flex />
@@ -19,6 +20,7 @@
                   width="100%"
                   aspect-ratio="1.7778"
                   :src="image.src"
+                  :srcset="image.srcset"
                   :lazy-src="image.placeholder"
                 />
               </v-col>
@@ -52,7 +54,9 @@ export default {
     },
     description: {
       type: String,
-      default: "Missing project description"
+    },
+    descriptionHTML: {
+      type: String,
     },
     video: {
       type: String
