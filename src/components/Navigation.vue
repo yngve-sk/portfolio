@@ -2,7 +2,7 @@
   <v-navigation-drawer v-model="show" absolute right temporary>
     <v-list-item>
       <v-list-item-avatar>
-        <v-img src="../../assets/images/profile-160x160.jpg"></v-img>
+        <v-img :src="profileImage"></v-img>
       </v-list-item-avatar>
 
       <v-list-item-content>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mdiHome, mdiBookOpenVariant, mdiNewspaper, mdiPresentation, mdiInformationVariant } from '@mdi/js'
 export default {
   props: {
     showNav: {
@@ -36,30 +37,31 @@ export default {
   },
   data: () => ({
     show: false,
+    profileImage: require('../../assets/images/profile-160x160.jpg'),
     pages: [
       {
         name: 'Home',
-        icon: 'home',
+        icon: mdiHome,
         link: '/'
       },
       {
         name: 'Portfolio',
-        icon: 'mdi-book-open-variant',
+        icon: mdiBookOpenVariant,
         link: '/portfolio'
       },
       {
         name: 'Publications',
-        icon: 'mdi-newspaper',
+        icon: mdiNewspaper,
         link: '/Publications'
       },
       {
         name: 'Presentation',
-        icon: 'mdi-presentation',
+        icon: mdiPresentation,
         link: '/presentation'
       },
       {
         name: 'About',
-        icon: 'mdi-information-variant',
+        icon: mdiInformationVariant,
         link: '/about'
       }
     ]

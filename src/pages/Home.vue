@@ -4,14 +4,14 @@
       <div id="imageContainer" :style="{marginLeft: imageX}">
         <img
           id="profileImage"
-          :src="`./assets/images/profile-reduced.svg`"
+          :src="`./assets/svg/profile-reduced.svg`"
           alt="stylized profile image"
           style="height: 100%"
           @load="onImageLoad($event)"
         />
         <img
           id="profileImageStrokes"
-          :src="`./assets/images/profilestrokes_animated.svg?a=`+ random"
+          :src="`./assets/svg/profilestrokes_animated.svg?a=`+ random"
           alt="animated edges of profile image"
           style="height: 100%"
         />
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mdiBookOpenVariant, mdiNewspaper, mdiPresentation, mdiInformationVariant } from '@mdi/js'
 
 function initProfile() {
   let profileImage = document.querySelector('#profileImage');
@@ -75,22 +76,22 @@ export default {
     pages: [
       {
         name: 'Portfolio',
-        icon: 'mdi-book-open-variant',
+        icon: mdiBookOpenVariant,
         link: '/portfolio'
       },
       {
         name: 'Publications',
-        icon: 'mdi-newspaper',
+        icon: mdiNewspaper,
         link: '/Publications'
       },
       {
         name: 'Presentation',
-        icon: 'mdi-presentation',
+        icon: mdiPresentation,
         link: '/presentation'
       },
       {
         name: 'About',
-        icon: 'mdi-information-variant',
+        icon: mdiInformationVariant,
         link: '/about'
       }
     ]

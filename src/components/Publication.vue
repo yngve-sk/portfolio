@@ -38,7 +38,7 @@
               >
                 <template v-slot:activator="{ on }">
                   <v-btn v-on="on" class="ma-1" small>
-                    <v-icon>format_quote</v-icon>
+                    <v-icon>{{icons.quote}}</v-icon>
                   </v-btn>
                 </template>
 
@@ -87,7 +87,7 @@
                 small
                 color="blue darken-3"
               >
-                <v-icon class="mr-1">mdi-file-pdf</v-icon>
+                <v-icon class="mr-1">{{icons.pdf}}</v-icon>
                 PDF
               </v-btn>
               <v-btn
@@ -98,7 +98,7 @@
                 small
                 color="red darken-3"
               >
-                <v-icon class="mr-1">mdi-youtube</v-icon>
+                <v-icon class="mr-1">{{icons.youtube}}</v-icon>
                 Youtube
               </v-btn>
             </p>
@@ -111,6 +111,7 @@
 </template>
 
 <script>
+import { mdiFormatQuoteClose, mdiFilePdf, mdiYoutube } from '@mdi/js'
 export default {
   props: {
     bibtex: {
@@ -126,7 +127,12 @@ export default {
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
+      icons: {
+        quote: mdiFormatQuoteClose,
+        pdf: mdiFilePdf,
+        youtube: mdiYoutube
+      }
     };
   },
   computed: {

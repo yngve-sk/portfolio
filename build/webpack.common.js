@@ -1,20 +1,11 @@
 "use strict";
 
-const webpack = require("webpack");
-const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const path = require("path");
-
-function resolve(dir) {
-  return path.join(__dirname, "..", dir);
-}
+const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
-  mode: "development",
-  devtool: "source-map",
-  devServer: {
-    hot: true
+  entry: {
+    app: './src/index.js',
   },
   module: {
     rules: [
@@ -36,10 +27,11 @@ module.exports = {
         loader: "responsive-loader",
         options: {
           adapter: require("responsive-loader/sharp"),
-          // sizes: [300, 600, 1200],
-          size: 1200,
+          sizes: [800],
+          // size: 1200,
           placeholder: true,
-          placeholderSize: 50
+          placeholderSize: 50,
+          outputPath: 'assets/images'
         }
       },
       {
@@ -61,19 +53,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
+      template: "template.html",
       filename: "index.html",
-      template: "index.html",
       inject: true
     }),
-    new CopyWebpackPlugin([
-      {
-        from: resolve("assets"),
-        to: resolve("dist/assets"),
-        toType: "dir"
-      }
-    ])
+    new VueLoaderPlugin()
   ]
 };

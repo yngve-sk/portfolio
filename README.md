@@ -1,4 +1,4 @@
-# fabian.bolte.me
+# fabianbolte.me
 This is my personal webpage utilizing:
 - Webpack for file bundling
 - Vue.js

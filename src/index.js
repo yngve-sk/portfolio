@@ -1,21 +1,13 @@
-import "@mdi/font/css/materialdesignicons.css";
+import "core-js/stable";
+// import "regenerator-runtime/runtime";
+import "vuetify/dist/vuetify.min.css";
 import Vue from "vue";
 import Vuetify from "vuetify";
-import "vuetify/dist/vuetify.min.css";
 import router from "./router";
 import App from "./App.vue";
-import "babel-polyfill";
 
 Vue.use(Vuetify);
 
-// const responsiveImage = require("../assets/images/source.png");
-// Vue.mixin({
-//   data: function() {
-//     return {
-//       images: responsiveImage
-//     };
-//   }
-// });
 /* eslint-disable-next-line no-new */
 new Vue({
   vuetify: new Vuetify({
@@ -23,7 +15,7 @@ new Vue({
       dark: true
     },
     icons: {
-      iconfont: "mdi"
+      iconfont: "mdiSvg"
     }
   }),
   router,

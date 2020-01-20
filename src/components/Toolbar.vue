@@ -2,16 +2,16 @@
   <v-app-bar fixed app dark>
     <v-toolbar-title>
       <router-link to="/" class="toolbar-title">
-        <v-icon icon>home</v-icon>
+        <v-icon icon>{{icons.home}}</v-icon>
         {{ title }}
       </router-link>
     </v-toolbar-title>
     <v-spacer />
     <v-btn icon href="https://github.com/cadanox" target="_blank">
-      <v-icon icon>mdi-github-circle</v-icon>
+      <v-icon icon>{{icons.github}}</v-icon>
     </v-btn>
     <v-btn icon href="mailto:fabian.bolte@web.de">
-      <v-icon icon>email</v-icon>
+      <v-icon icon>{{icons.email}}</v-icon>
     </v-btn>
     <v-app-bar-nav-icon @click="menuButtonClicked" />
 
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mdiHome, mdiGithubCircle, mdiEmail } from '@mdi/js'
 import Breadcrumbs from './Breadcrumbs.vue';
 
 export default {
@@ -37,6 +38,15 @@ export default {
     title: {
       type: String,
       required: true
+    }
+  },
+  data() {
+    return {
+      icons: {
+        home: mdiHome,
+        github: mdiGithubCircle,
+        email: mdiEmail
+      }
     }
   },
   methods: {
