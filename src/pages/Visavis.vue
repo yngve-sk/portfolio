@@ -46,7 +46,7 @@ export default {
         description: `Vis-a-Vis is a client-server architecture for the visual exploration of code development workflows.
         It improves the users’ understanding of code changes and their impact on the algorithm’s functionality.
         `,
-        video: "https://www.youtube-nocookie.com/embed/5OaZKX7-9UE"
+        video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
       }
     };
   }
