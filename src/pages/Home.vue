@@ -14,6 +14,7 @@
           :src="`./assets/svg/profilestrokes_animated.svg?a=`+ random"
           alt="animated edges of profile image"
           style="height: 100%"
+          @load="onStrokesLoad($event)"
         />
       </div>
       <v-flex
@@ -98,13 +99,15 @@ export default {
   }),
   mounted() {
     initProfile();
-    animateProfile();
   },
   methods: {
     onImageLoad(event) {
-      const img = event.path[0];
+      const img = event.srcElement;
       this.imageAspectRatio = img.naturalHeight / img.naturalWidth;
       this.setImagePosition();
+    },
+    onStrokesLoad() {
+      animateProfile();
     },
     onResize() {
       const toolbar = document.querySelector('.v-toolbar');
@@ -147,6 +150,7 @@ export default {
   width: 100%;
 }
 .pageLink {
+  width: -moz-fit-content;
   width: fit-content;
   min-width: fit-content;
 }

@@ -4,7 +4,7 @@
       <v-container fluid>
         <v-row justify="space-around" class="pt-4">
           <v-col cols="10">
-            <v-card-title class="display-2 pa-0" v-text="title" />
+            <v-card-title class="display-1 pa-0" v-text="title" />
           </v-col>
           <v-col cols="10">
             <v-row justify="space-around">

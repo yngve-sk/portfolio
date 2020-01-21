@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       data: {
-        title: "Presentation",
+        title: "About",
         descriptionHTML: `
         <p>Hello, I am Fabian and this is my website showcasing some of the projects I have been working on during my career and free time.</p>
               <p>

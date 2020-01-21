@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar fixed app dark>
+  <v-app-bar absolute app dark>
     <v-toolbar-title>
       <router-link to="/" class="toolbar-title">
         <v-icon icon>{{icons.home}}</v-icon>
