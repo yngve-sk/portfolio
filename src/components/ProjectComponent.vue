@@ -9,8 +9,33 @@
           <v-col cols="10">
             <v-row justify="space-around">
               <v-col cols="12" md="6" class="pr-md-6">
-                <v-card-text v-if="description" class="text-justify pa-0" v-text="description" />
-                <v-card-text v-else-if="descriptionHTML" class="text-justify pa-0" v-html="descriptionHTML" />
+                <v-row cols="12">
+                  <v-card-text
+                    v-if="description"
+                    class="text-justify pa-0"
+                    v-text="description"
+                  />
+                  <v-card-text
+                    v-else-if="descriptionHTML"
+                    class="text-justify pa-0"
+                    v-html="descriptionHTML"
+                  />
+                  <v-card-actions>
+                    <v-spacer />
+                    <v-btn v-if="github" :href="github" target="_blank">
+                      <v-icon class="mr-3">{{ icons.github }}</v-icon
+                      >Github
+                    </v-btn>
+                    <v-btn
+                      v-if="demo"
+                      color="blue"
+                      :href="demo"
+                      target="_blank"
+                    >
+                      Demo
+                    </v-btn>
+                  </v-card-actions>
+                </v-row>
               </v-col>
               <v-col cols="12" md="6">
                 <youtube v-if="video" :src="video" flex />
@@ -39,10 +64,18 @@
 </template>
 
 <script>
+import { mdiGithubCircle } from "@mdi/js";
 import Youtube from "../components/Youtube.vue";
 export default {
   components: {
     Youtube
+  },
+  data() {
+    return {
+      icons: {
+        github: mdiGithubCircle
+      }
+    };
   },
   props: {
     title: {
@@ -53,12 +86,18 @@ export default {
       type: Object
     },
     description: {
-      type: String,
+      type: String
     },
     descriptionHTML: {
-      type: String,
+      type: String
     },
     video: {
+      type: String
+    },
+    github: {
+      type: String
+    },
+    demo: {
       type: String
     }
   }

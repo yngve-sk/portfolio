@@ -1,5 +1,5 @@
 <template>
-  <project-component :title="title" :image="image" :description="description">
+  <project-component v-bind="data">
     <div>
       <p>
       The web-based control interface enables many of the following features:
@@ -46,6 +46,7 @@ export default {
   components: { ProjectComponent },
   data() {
     return {
+      data: {
       title: 'Hydroponics O.L.D.',
       image: require('../../assets/images/OLD-interface1.png'),
       description: `O.L.D. is a device which can be connected to an existing water circuit in a green house or personal garden to optimize the grow conditions.
@@ -54,6 +55,7 @@ export default {
       Additional devices like diaphragma pumps and heaters allow for the adjustment of the environment to create optimal conditions for plant growth.
       The O.L.D. hosts a website in the local network that can be accessed via the integrated touchscreen, as well as PC and mobile devices.
       `
+      }
     };
   }
 };

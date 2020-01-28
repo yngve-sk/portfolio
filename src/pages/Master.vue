@@ -1,5 +1,5 @@
 <template>
-  <project-component :title="title" :image="image" :description="description">
+  <project-component v-bind="data">
     <div>
       <p>
         Cooperation data was extracted from the publication data of the TU Chemnitz, Germany. We differ between 4 different cooperation types:
@@ -27,11 +27,13 @@ export default {
   components: { ProjectComponent },
   data() {
     return {
+      data: {
       title: "Author Collaborations",
       image: require("../../assets/images/streamgraph.png"),
       description: `This visualization utilizes Streamgraphs to display the evolution of cooperations between institutes, faculties, and external entities in a university.
         The representation does not only allow for arbitrary comparisons of evolutions on different scales, but further provides information about cooperation types and their contribution to total cooperation numbers.
         `
+      }
       };
   }
 };
