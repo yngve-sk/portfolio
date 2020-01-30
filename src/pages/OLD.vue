@@ -54,7 +54,8 @@ export default {
       It collects measures like temperature, PH, and electric conductivity via sensors and stores them for later analysis.
       Additional devices like diaphragma pumps and heaters allow for the adjustment of the environment to create optimal conditions for plant growth.
       The O.L.D. hosts a website in the local network that can be accessed via the integrated touchscreen, as well as PC and mobile devices.
-      `
+      `,
+      github: 'https://github.com/CadanoX/Hydroponics'
       }
     };
   }

@@ -1,10 +1,10 @@
 "use strict";
 
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
 
 const path = require("path");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 function resolve(dir) {
@@ -25,12 +25,17 @@ module.exports = merge(common, {
         from: resolve("libs"),
         to: resolve("dist/libs"),
         toType: "dir"
+      },
+      {
+        from: resolve("README-deploy.md"),
+        to: resolve("dist/README.md"),
+        toType: "file"
       }
     ])
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all',
-    },
-  },
+      chunks: "all"
+    }
+  }
 });
