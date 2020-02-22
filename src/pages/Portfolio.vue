@@ -31,6 +31,13 @@ export default {
     return {
       projects: [
         {
+          title: 'Organic Narrative Charts',
+          image: require('../../assets/images/orcha.jpg'),
+          link: 'orcha',
+          description:
+            "Digital recreation of Ward Shelley's diagrammatic paintings and prototype for an authoring tool."
+        },
+        {
           title: 'SplitStreams',
           image: require('../../assets/images/streams.png'),
           link: 'splitstreams',
@@ -48,7 +55,7 @@ export default {
           title: 'Hydroponics O.L.D.',
           image: require('../../assets/images/OLD-interface1.png'),
           link: 'old',
-          description: `Self-regulating unit for automatic nutrition adjustment and watering for optimal plant growth conditions.`
+          description: `Self-regulating unit for automatic nutrition adjustment and watering of plants for optimal growth conditions.`
         },
         {
           title: 'Author Collaborations',
