@@ -68,6 +68,10 @@ export default {
 </script>
 
 <style>
+.v-application {
+  overflow: hidden;
+}
+
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,

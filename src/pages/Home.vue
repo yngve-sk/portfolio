@@ -27,7 +27,8 @@
       >
         <v-card class="pageLink" v-for="(page, i) in pages" :key="i">
           <v-btn :to="page.link" elevation="24">
-            <v-icon class="mr-3">{{page.icon}}</v-icon>{{page.name}}
+            <v-icon class="mr-3">{{page.icon}}</v-icon>
+            {{page.name}}
           </v-btn>
         </v-card>
       </v-flex>
@@ -36,7 +37,12 @@
 </template>
 
 <script>
-import { mdiBookOpenVariant, mdiNewspaper, mdiPresentation, mdiInformationVariant } from '@mdi/js'
+import {
+  mdiBookOpenVariant,
+  mdiNewspaper,
+  mdiPresentation,
+  mdiInformationVariant
+} from '@mdi/js';
 
 function initProfile() {
   let profileImage = document.querySelector('#profileImage');
@@ -54,8 +60,7 @@ function animateProfile() {
     profileImage.style.opacity = 1;
   }, 2000);
   setTimeout(() => {
-    imageStrokes.style.transition =
-      'opacity 3s';
+    imageStrokes.style.transition = 'opacity 3s';
     imageStrokes.style.opacity = 0;
   }, 3000);
 }
@@ -146,7 +151,7 @@ export default {
   position: absolute;
   left: 10%;
   top: 40%;
-  height: 30%;
+  height: 40%;
   width: 100%;
 }
 .pageLink {
