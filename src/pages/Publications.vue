@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid grid-list-lg mt-n2 height="100%" >
+  <v-container fluid grid-list-lg mt-n2 height="100%">
     <v-row justify-center align-center height="100%" pa-6 ma-0>
       <v-col v-for="pub in bibtexParsed" :key="pub.BIBTEXKEY" cols="12">
         <publication :bibtex="pub" v-bind="meta[pub.BIBTEXKEY]" />
@@ -16,28 +16,42 @@ export default {
   data() {
     return {
       meta: {
+        bolte2020orcha: {
+          image: require('../../assets/images/orcha.jpg')
+        },
         bolte2020splitstreams: {
           image: require('../../assets/images/streams.png')
         },
         bolte2019visavis: {
           image: require('../../assets/images/source.png'),
-          youtube: "https://youtu.be/5XO6BU4j1KQ"
+          youtube: 'https://youtu.be/5XO6BU4j1KQ'
         },
         bolte2019MVS: {
           image: require('../../assets/images/measures.png'),
-          abstract: "Measurement is an integral part of modern science, providing the fundamental means for evaluation, comparison, and prediction. In the context of visualization, several different types of measures have been proposed, ranging from approaches that evaluate particular aspects of individual visualization techniques, their perceptual characteristics, and even economic factors. Furthermore, there are approaches that attempt to provide means for measuring general properties of the visualization process as a whole. Measures can be quantitative or qualitative, and one of the primary goals is to provide objective means for reasoning about visualizations and their effectiveness. As such, they play a central role in the development of scientific theories for visualization. In this chapter, we provide an overview of the current state of the art, survey and classify different types of visualization measures, characterize their strengths and drawbacks, and provide an outline of open challenges for future research.",
+          abstract:
+            'Measurement is an integral part of modern science, providing the fundamental means for evaluation, comparison, and prediction. In the context of visualization, several different types of measures have been proposed, ranging from approaches that evaluate particular aspects of individual visualization techniques, their perceptual characteristics, and even economic factors. Furthermore, there are approaches that attempt to provide means for measuring general properties of the visualization process as a whole. Measures can be quantitative or qualitative, and one of the primary goals is to provide objective means for reasoning about visualizations and their effectiveness. As such, they play a central role in the development of scientific theories for visualization. In this chapter, we provide an overview of the current state of the art, survey and classify different types of visualization measures, characterize their strengths and drawbacks, and provide an outline of open challenges for future research.'
         },
         ivapp19: {
-          image: require('../../assets/images/streamgraph.png'),
+          image: require('../../assets/images/streamgraph.png')
         }
       },
       bibtexParsed: {},
       bibtex: `
-      @revision{bolte2020splitstreams,
+      @inproceedings{bolte2020orcha,
+        author={Bolte, Fabian and Bruckner, Stefan},
+        title={Organic Narrative Charts},
+        year={2020},
+        publisher={Computer Graphics Forum}
+      },
+
+      @ARTICLE{bolte2020splitstreams,
         author={Bolte, Fabian and Nourani, Mahsan and Ragan, Eric D. and Bruckner, Stefan},
         journal={IEEE Transactions on Visualization and Computer Graphics},
         title={SplitStreams: A Visual Metaphor for Evolving Hierarchies},
         year={2020},
+        doi={10.1109/TVCG.2020.2973564},
+        ISSN={1077-2626},
+        url={https://arxiv.org/pdf/2002.03891.pdf},
         keywords={Visualization, hierarchy data, time-varying data, streamgraphs, treemaps.}
       },
 
