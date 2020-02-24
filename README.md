@@ -1,4 +1,4 @@
-# fabianbolte.me
+# [bolte.tech](https://bolte.tech)
 This is my personal webpage utilizing:
 - Webpack for file bundling
 - Vue.js
