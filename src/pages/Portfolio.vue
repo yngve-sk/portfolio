@@ -2,7 +2,14 @@
   <v-container fluid grid-list-lg mt-n2>
     <v-row justify-center pa-6 ma-0>
       <v-col v-for="(project, i) in projects" :key="i" cols="12" sm="6" md="4">
-        <v-card :to="'/portfolio/' + project.link" width="100%" height="100%" dark hover>
+        <v-card
+          :to="project.link ? '/portfolio/' + project.link : undefined"
+          :disabled="project.link ? false : true"
+          width="100%"
+          height="100%"
+          dark
+          hover
+        >
           <v-img
             contain
             width="100%"
@@ -12,7 +19,7 @@
           >
             <template v-slot:placeholder>
               <v-row align="center" justify="center" ma-0>
-                <v-progress-circular indeterminate color="grey"></v-progress-circular>
+                <v-progress-circular indeterminate color="grey" />
               </v-row>
             </template>
           </v-img>
@@ -49,7 +56,7 @@ export default {
           image: require('../../assets/images/source.png'),
           link: 'visavis',
           description:
-            'Web-based source code visualization which supports and enhances many tasks in the development and prototyping of visualization algorithms.'
+            'Web-based IDE to support and enhance the development of prototypes for visualization algorithms.'
         },
         {
           title: 'Hydroponics O.L.D.',
@@ -65,18 +72,11 @@ export default {
             'Visualization of collaboration efforts in university departments and their evolution over time.'
         },
         {
-          title: 'More to come ...',
-          image: require('../../assets/images/future.png'),
-          link: 'future',
+          title: 'Macula Degeneration',
+          image: require('../../assets/images/macula.png'),
           description:
-            'This website is still under development and more projects will be added in the future.'
-        }
-        // {
-        //   title: "Macula Degeneration",
-        //   image: require("../../assets/images/source.png"),
-        //   link: "macula",
-        //   description: "Collaboration with University Eye Clinic Greifswald"
-        // },
+            'Collaboration with University Eye Clinic Greifswald to visualize age-related macula degeneration.'
+        },
         // {
         //   title: "Customer Localization",
         //   image: require("../../assets/images/source.png"),
@@ -89,24 +89,29 @@ export default {
         //   link: "master",
         //   description: "possibly"
         // },
-        // {
-        //   title: "Reinforcement Learning",
-        //   image: require("../../assets/images/source.png"),
-        //   link: "master",
-        //   description: "My bachelor thesis supported by European Government"
-        // },
+        {
+          title: 'Reinforcement Learning',
+          image: require('../../assets/images/bachelor.png'),
+          description:
+            'Implementation of a reinforcement learning agent to find an optimal sequence of actions in unknown environments.'
+        },
         // {
         //   title: "Collision Detection for Dynamic Meshes",
         //   image: require("../../assets/images/source.png"),
         //   link: "master",
         //   description: "possibly"
         // },
-        // {
-        //   title: "CPU Implementation of the OpenGL Pipeline",
-        //   image: require("../../assets/images/source.png"),
-        //   link: "master",
-        //   description: "Pong"
-        // }
+        {
+          title: 'Pong 2D/3D',
+          image: require('../../assets/images/pong.jpg'),
+          description: 'Reimplementation of the OpenGL pipeline in software.'
+        },
+        {
+          title: 'Manta',
+          image: require('../../assets/images/Manta.jpg'),
+          description:
+            'Simple game for learning 3D transformations and lightning models.'
+        }
       ]
     };
   }
@@ -114,4 +119,7 @@ export default {
 </script>
 
 <style scoped>
+.v-image__placeholder > div {
+  height: 100%;
+}
 </style>

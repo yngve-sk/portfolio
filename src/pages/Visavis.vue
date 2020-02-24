@@ -26,7 +26,7 @@
         extension to Volumeshop. Communication to the client is based on AJAX
         calls exchanging JSON objects. Based on the chosen programming language,
         received source code runs either through the Diderot or the GCC compiler.
-        Successfully compiling source code is stored in a local Git repository via
+        Successfully compiled source code is stored in a local Git repository via
         libgit2.
       </p>
     </div>
