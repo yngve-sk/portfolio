@@ -16,6 +16,11 @@ export default {
   data() {
     return {
       meta: {
+        trautner2020sunspotplots: {
+          image: require('../../assets/images/sunspotGeo.png'),
+          video:
+            'https://vis.uib.no/wp-content/papercite-data/vids/Trautner_2020_SunspotPlots_video.mp4'
+        },
         bolte2020orcha: {
           image: require('../../assets/images/orcha.jpg')
         },
@@ -24,7 +29,7 @@ export default {
         },
         bolte2019visavis: {
           image: require('../../assets/images/source.png'),
-          youtube: 'https://youtu.be/5XO6BU4j1KQ'
+          video: 'https://youtu.be/5XO6BU4j1KQ'
         },
         bolte2019MVS: {
           image: require('../../assets/images/measures.png'),
@@ -37,17 +42,30 @@ export default {
       },
       bibtexParsed: {},
       bibtex: `
+      @article{trautner2020sunspotplots,
+        author = {Trautner, Thomas and Bolte, Fabian and Stoppel, Sergej and Bruckner, Stefan},
+        title = {{Sunspot Plots}: {M}odel-based Structure Enhancement for Dense Scatter Plots},
+        journal = {Computer Graphics Forum},
+        volume = {39},
+        number = {3},
+        pages = {},
+        keywords = {Human-centered computing, Visualization techniques, Information visualization, Empirical studies in visualization},
+        year = {2020},
+        url ={https://vis.uib.no/wp-content/papercite-data/pdfs/Trautner_2020_SunspotPlots_PDF.pdf}
+      }
+
       @inproceedings{bolte2020orcha,
         author={Bolte, Fabian and Bruckner, Stefan},
         title={Organic Narrative Charts},
         year={2020},
-        publisher={Computer Graphics Forum}
+        publisher={Computer Graphics Forum},
+        url={https://arxiv.org/pdf/2004.13896.pdf}
       },
 
       @ARTICLE{bolte2020splitstreams,
         author={Bolte, Fabian and Nourani, Mahsan and Ragan, Eric D. and Bruckner, Stefan},
         journal={IEEE Transactions on Visualization and Computer Graphics},
-        title={SplitStreams: A Visual Metaphor for Evolving Hierarchies},
+        title={{SplitStreams}: {A} Visual Metaphor for Evolving Hierarchies},
         year={2020},
         doi={10.1109/TVCG.2020.2973564},
         ISSN={1077-2626},
@@ -58,7 +76,7 @@ export default {
       @ARTICLE{bolte2019visavis,
         author={Bolte, Fabian and Bruckner, Stefan},
         journal={IEEE Transactions on Visualization and Computer Graphics},
-        title={Vis-a-Vis: Visual Exploration of Visualization Source Code Evolution},
+        title={{Vis-a-Vis}: {V}isual Exploration of Visualization Source Code Evolution},
         year={2019},
         keywords={Visualization System and Toolkit Design;User Interfaces;Integrating Spatial and Non-Spatial Data Visualization;Software Visualization},
         doi={10.1109/TVCG.2019.2963651},
@@ -80,7 +98,7 @@ export default {
 
       @inproceedings{ivapp19,
         author={Rosenthal, Paul and Müller, Nicholas H. and Bolte, Fabian},
-        title={Visual Analytics of Bibliographical Data for Strategic Decision Support of University Leaders: A Design Study},
+        title={Visual Analytics of Bibliographical Data for Strategic Decision Support of University Leaders: {A} Design Study},
         booktitle={Proceedings of the 14th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications - Volume 3: IVAPP},
         year={2019},
         pages={297-305},

@@ -17,25 +17,15 @@
           <v-col class="ma-1">
             <p>
               <span v-if="authors">{{ authors }}</span>
-              <span v-if="pub.TITLE">"{{ pub.TITLE }}",</span>
-              <span v-if="pub.BOOKTITLE" class="booktitle"
-                >in {{ pub.BOOKTITLE }},</span
-              >
-              <span v-if="pub.PUBLISHER" class="publisher"
-                >{{ pub.PUBLISHER }},</span
-              >
+              <span v-if="title">"{{ title }}",</span>
+              <span v-if="pub.BOOKTITLE" class="booktitle">in {{ pub.BOOKTITLE }},</span>
+              <span v-if="pub.PUBLISHER" class="publisher">{{ pub.PUBLISHER }},</span>
               <span v-if="pub.JOURNAL" class="journal">{{ pub.JOURNAL }},</span>
               <span v-if="pub.YEAR">{{ pub.YEAR }}</span>
             </p>
             <p>
-              <v-btn v-if="type" outlined class="ma-1 pubType" tile small>{{
-                type
-              }}</v-btn>
-              <v-dialog
-                v-model="dialog"
-                width="500"
-                @keydown.esc="dialog = false"
-              >
+              <v-btn v-if="type" outlined class="ma-1 pubType" tile small>{{ type }}</v-btn>
+              <v-dialog v-model="dialog" width="500" @keydown.esc="dialog = false">
                 <template v-slot:activator="{ on }">
                   <v-btn v-on="on" class="ma-1" small>
                     <v-icon>{{icons.quote}}</v-icon>
@@ -43,31 +33,22 @@
                 </template>
 
                 <v-card>
-                  <v-card-title primary-title>
-                    Bibtex
-                  </v-card-title>
+                  <v-card-title primary-title>Bibtex</v-card-title>
                   <v-card-text>
                     <div>{{ bibtexHeader }}</div>
                     <div style="margin-left: 20px;">
-                      <div
-                        v-for="(entry, i) in bibtexContent"
-                        :key="i"
-                        class="d-flex"
-                        style
-                      >
-                        <span>{{ entry[0].toLowerCase() }}:&nbsp;</span
-                        ><span>{{ entry[1] }}</span>
+                      <div v-for="(entry, i) in bibtexContent" :key="i" class="d-flex" style>
+                        <span>{{ entry[0].toLowerCase() }}:&nbsp;</span>
+                        <span>{{ entry[1] }}</span>
                       </div>
                     </div>
                     <div>}</div>
                   </v-card-text>
-                  <v-divider></v-divider>
+                  <v-divider />
 
                   <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="orange" text @click="dialog = false">
-                      Done
-                    </v-btn>
+                    <v-spacer />
+                    <v-btn color="orange" text @click="dialog = false">Done</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
@@ -77,8 +58,7 @@
                 class="ma-1"
                 target="_blank"
                 small
-                >DOI</v-btn
-              >
+              >DOI</v-btn>
               <v-btn
                 v-if="pub.URL"
                 :href="pub.URL"
@@ -87,19 +67,17 @@
                 small
                 color="blue darken-3"
               >
-                <v-icon class="mr-1">{{icons.pdf}}</v-icon>
-                PDF
+                <v-icon class="mr-1">{{icons.pdf}}</v-icon>PDF
               </v-btn>
               <v-btn
-                v-if="youtube"
-                :href="youtube"
+                v-if="video"
+                :href="video"
                 class="ma-1"
                 target="_blank"
                 small
                 color="red darken-3"
               >
-                <v-icon class="mr-1">{{icons.youtube}}</v-icon>
-                Youtube
+                <v-icon class="mr-1">{{icons.video}}</v-icon>Video
               </v-btn>
             </p>
           </v-col>
@@ -111,7 +89,7 @@
 </template>
 
 <script>
-import { mdiFormatQuoteClose, mdiFilePdf, mdiYoutube } from '@mdi/js'
+import { mdiFormatQuoteClose, mdiFilePdf, mdiYoutube } from '@mdi/js';
 export default {
   props: {
     bibtex: {
@@ -121,7 +99,7 @@ export default {
     image: {
       type: Object
     },
-    youtube: {
+    video: {
       type: String
     }
   },
@@ -131,7 +109,7 @@ export default {
       icons: {
         quote: mdiFormatQuoteClose,
         pdf: mdiFilePdf,
-        youtube: mdiYoutube
+        video: mdiYoutube
       }
     };
   },
@@ -142,47 +120,51 @@ export default {
     bibtexContent: function() {
       let entries = Object.entries(this.pub);
       let filtered = entries.filter(d => {
-        return !d[0].startsWith("BIBTEX");
+        return !d[0].startsWith('BIBTEX');
       });
-      let edited = filtered.map((d, i) => [d[0], "{" + d[1] + "},"]);
+      let edited = filtered.map((d, i) => [d[0], '{' + d[1] + '},']);
       edited[edited.length - 1][1] = edited[edited.length - 1][1].slice(0, -1);
       return edited;
     },
     bibtexHeader: function() {
-      return this.pub.BIBTEXTYPEKEY.toLowerCase() + "{" + this.pub.BIBTEXKEY;
+      return this.pub.BIBTEXTYPEKEY.toLowerCase() + '{' + this.pub.BIBTEXKEY;
     },
     type: function() {
       switch (this.bibtex.BIBTEXTYPEKEY) {
-        case "@ARTICLE":
-          return "Journal Article";
-        case "@BOOK":
-          return "Book";
-        case "@INCOLLECTION":
-          return "Book Chapter";
-        case "@INPROCEEDINGS":
-          return "Conference Paper";
-        case "@REVISION":
-          return "Under Revision";
+        case '@ARTICLE':
+          return 'Journal Article';
+        case '@BOOK':
+          return 'Book';
+        case '@INCOLLECTION':
+          return 'Book Chapter';
+        case '@INPROCEEDINGS':
+          return 'Conference Paper';
+        case '@REVISION':
+          return 'Under Revision';
         default:
-          return "Unknown";
+          return 'Unknown';
       }
+    },
+    title: function() {
+      // Remove { and } from paper titles
+      return this.pub.TITLE.replace(/[{}]/g, '');
     },
     authors: function() {
       // change names from Bolte, Fabian to F. Bolte
-      let authors = this.bibtex.AUTHOR.split(" and ");
-      let authorString = "";
+      let authors = this.bibtex.AUTHOR.split(' and ');
+      let authorString = '';
       let count = 1;
       for (let author of authors) {
-        let parts = author.split(" ");
+        let parts = author.split(' ');
         parts[0] = parts[0].slice(0, -1); // remove comma
         // add first and middle names
         for (let i = 1; i < parts.length; i++)
-          authorString += parts[i][0] + ". ";
+          authorString += parts[i][0] + '. ';
         // add last name
         authorString += parts[0];
         // concatenate author names
-        authorString += ", ";
-        if (count == authors.length - 1) authorString += " and ";
+        authorString += ', ';
+        if (count == authors.length - 1) authorString += ' and ';
         count++;
       }
       return authorString;
