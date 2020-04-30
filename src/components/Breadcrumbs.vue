@@ -1,21 +1,13 @@
 <template>
-  <!-- <v-flex class="breadcrumbs"> -->
   <div>
     <v-breadcrumbs :items="breadcrumbs" divider large elevation="6" />
   </div>
-  <!-- </v-flex> -->
 </template>
 
 <script>
 export default {
-  mounted() {
-    // let breadcrumbs = document.querySelector('.v-breadcrumbs');
-    // console.log(breadcrumbs);
-    // let divider = document.createElement('li');
-    // divider.classList.add('v-breadcrumbs__divider');
-    // breadcrumbs.appendChild(divider);
-  },
   computed: {
+    // extract page navigations from the current path
     breadcrumbs() {
       let breadcrumbs = [];
       let path = this.$route.path;
@@ -37,6 +29,7 @@ export default {
 
       // do not show current page
       // breadcrumbs.pop();
+
       // remove link from current page breadcrumb
       breadcrumbs[breadcrumbs.length - 1].disabled = true;
 

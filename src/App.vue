@@ -17,14 +17,12 @@
 </template>
 
 <script>
-import Breadcrumbs from './components/Breadcrumbs.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import Navigation from './components/Navigation.vue';
 import Toolbar from './components/Toolbar.vue';
 
 export default {
   components: {
-    Breadcrumbs,
     FooterComponent,
     Navigation,
     Toolbar
@@ -37,6 +35,7 @@ export default {
     };
   },
   created() {
+    // transition pages to left/right based on path depth
     this.$router.beforeEach((to, from, next) => {
       const toPath = to.path.split('/');
       const fromPath = from.path.split('/');
@@ -55,14 +54,11 @@ export default {
     },
     beforeLeave(element) {},
     enter(element) {
+      // scroll to top before slide transition, so that
+      // the top of the new page content is visible during the animation
       document.querySelector('body').scrollTop = 0;
     },
     afterEnter(element) {}
-  },
-  computed: {
-    breadcrumbs() {
-      return this.$route.path != '/';
-    }
   }
 };
 </script>

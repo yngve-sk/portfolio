@@ -10,11 +10,7 @@
             <v-row justify="space-around">
               <v-col cols="12" md="6" class="pr-md-6">
                 <v-row cols="12">
-                  <v-card-text
-                    v-if="description"
-                    class="text-justify pa-0"
-                    v-text="description"
-                  />
+                  <v-card-text v-if="description" class="text-justify pa-0" v-text="description" />
                   <v-card-text
                     v-else-if="descriptionHTML"
                     class="text-justify pa-0"
@@ -23,17 +19,9 @@
                   <v-card-actions>
                     <v-spacer />
                     <v-btn v-if="github" :href="github" target="_blank">
-                      <v-icon class="mr-3">{{ icons.github }}</v-icon
-                      >Github
+                      <v-icon class="mr-3">{{ icons.github }}</v-icon>Github
                     </v-btn>
-                    <v-btn
-                      v-if="demo"
-                      color="blue"
-                      :href="demo"
-                      target="_blank"
-                    >
-                      Demo
-                    </v-btn>
+                    <v-btn v-if="demo" color="blue" :href="demo" target="_blank">Demo</v-btn>
                   </v-card-actions>
                 </v-row>
               </v-col>
@@ -55,7 +43,7 @@
         <v-divider dark />
         <v-row justify="space-around">
           <v-col cols="10">
-            <slot></slot>
+            <slot />
           </v-col>
         </v-row>
       </v-container>
@@ -64,8 +52,8 @@
 </template>
 
 <script>
-import { mdiGithubCircle } from "@mdi/js";
-import Youtube from "../components/Youtube.vue";
+import { mdiGithubCircle } from '@mdi/js';
+import Youtube from '../components/Youtube.vue';
 export default {
   components: {
     Youtube
@@ -80,7 +68,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Missing project title"
+      default: 'Missing project title'
     },
     image: {
       type: Object
