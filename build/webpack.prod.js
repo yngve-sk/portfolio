@@ -27,8 +27,13 @@ module.exports = merge(common, {
         toType: "dir"
       },
       {
-        from: resolve("README-deploy.md"),
+        from: resolve("deploy/README.md"),
         to: resolve("dist/README.md"),
+        toType: "file"
+      },
+      {
+        from: resolve("deploy/CNAME"),
+        to: resolve("dist/CNAME"),
         toType: "file"
       }
     ])
