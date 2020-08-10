@@ -27,11 +27,11 @@ export default {
         bolte2020splitstreams: {
           image: require('../../assets/images/streams.png')
         },
-        bolte2019visavis: {
+        bolte2020visavis: {
           image: require('../../assets/images/source.png'),
           video: 'https://youtu.be/5XO6BU4j1KQ'
         },
-        bolte2019MVS: {
+        bolte2020MVS: {
           image: require('../../assets/images/measures.png'),
           abstract:
             'Measurement is an integral part of modern science, providing the fundamental means for evaluation, comparison, and prediction. In the context of visualization, several different types of measures have been proposed, ranging from approaches that evaluate particular aspects of individual visualization techniques, their perceptual characteristics, and even economic factors. Furthermore, there are approaches that attempt to provide means for measuring general properties of the visualization process as a whole. Measures can be quantitative or qualitative, and one of the primary goals is to provide objective means for reasoning about visualizations and their effectiveness. As such, they play a central role in the development of scientific theories for visualization. In this chapter, we provide an overview of the current state of the art, survey and classify different types of visualization measures, characterize their strengths and drawbacks, and provide an outline of open challenges for future research.'
@@ -42,26 +42,33 @@ export default {
       },
       bibtexParsed: {},
       bibtex: `
-      @article{trautner2020sunspotplots,
-        author = {Trautner, Thomas and Bolte, Fabian and Stoppel, Sergej and Bruckner, Stefan},
-        title = {{Sunspot Plots}: {M}odel-based Structure Enhancement for Dense Scatter Plots},
+      @article {trautner2020sunspotplots,
         journal = {Computer Graphics Forum},
+        title = {{Sunspot Plots}: {M}odel-based Structure Enhancement for Dense Scatter Plots},
+        author = {Trautner, Thomas and Bolte, Fabian and Stoppel, Sergej and Bruckner, Stefan},
+        year = {2020},
         volume = {39},
         number = {3},
         pages = {},
+        publisher = {The Eurographics Association and John Wiley & Sons Ltd.},
         keywords = {Human-centered computing, Visualization techniques, Information visualization, Empirical studies in visualization},
-        year = {2020},
-        url ={https://vis.uib.no/wp-content/papercite-data/pdfs/Trautner_2020_SunspotPlots_PDF.pdf}
-      }
-
-      @inproceedings{bolte2020orcha,
-        author={Bolte, Fabian and Bruckner, Stefan},
-        title={Organic Narrative Charts},
-        year={2020},
-        publisher={Computer Graphics Forum},
-        url={https://arxiv.org/pdf/2004.13896.pdf}
+        ISSN = {1467-8659},
+        DOI = {10.1111/cgf.14001},
+        url = {https://vis.uib.no/wp-content/papercite-data/pdfs/Trautner_2020_SunspotPlots_PDF.pdf}
       },
 
+      @inproceedings {bolte2020orcha,
+        booktitle = {Eurographics 2020 - Short Papers},
+        title = {{Organic Narrative Charts}},
+        author = {Bolte, Fabian and Bruckner, Stefan},
+        year = {2020},
+        publisher = {The Eurographics Association},
+        ISSN = {1017-4656},
+        ISBN = {978-3-03868-101-4},
+        DOI = {10.2312/egs.20201026},
+        url={https://arxiv.org/pdf/2004.13896.pdf}
+      },
+      
       @ARTICLE{bolte2020splitstreams,
         author={Bolte, Fabian and Nourani, Mahsan and Ragan, Eric D. and Bruckner, Stefan},
         journal={IEEE Transactions on Visualization and Computer Graphics},
@@ -73,26 +80,27 @@ export default {
         keywords={Visualization, hierarchy data, time-varying data, streamgraphs, treemaps.}
       },
 
-      @ARTICLE{bolte2019visavis,
+      @ARTICLE{bolte2020visavis,
         author={Bolte, Fabian and Bruckner, Stefan},
         journal={IEEE Transactions on Visualization and Computer Graphics},
         title={{Vis-a-Vis}: {V}isual Exploration of Visualization Source Code Evolution},
-        year={2019},
+        year={2020},
         keywords={Visualization System and Toolkit Design;User Interfaces;Integrating Spatial and Non-Spatial Data Visualization;Software Visualization},
         doi={10.1109/TVCG.2019.2963651},
         ISSN={2160-9306},
         url = {https://arxiv.org/pdf/2001.02092.pdf}
       },
 
-      @incollection {bolte2019MVS,
+      @incollection {bolte2020MVS,
         author = {Bolte, Fabian and Bruckner, Stefan},
         title = {Measures in Visualization Space},
         booktitle = {Foundations of Data Visualization},
         chapter = {3},
         publisher = {Springer},
-        year = {2019},
+        year = {2020},
         note = {This is a preprint of a chapter for a planned book that was initiated by participants of the Dagstuhl Seminar 18041 ("Foundations of Data Visualization") and that is expected to be published by Springer. The final book chapter will differ from this preprint.},
         isbn = {978-3-030-34444-3},
+        doi = {10.1007/978-3-030-34444-3},
         url = {https://arxiv.org/pdf/1909.05295}
       }
 
