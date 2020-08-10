@@ -6,6 +6,7 @@ import Publications from "./pages/Publications.vue";
 import Presentation from "./pages/Presentation.vue";
 import About from "./pages/About.vue";
 
+import Slots from "./pages/Slots.vue";
 import Orcha from "./pages/Orcha.vue";
 import SplitStreams from "./pages/SplitStreams.vue";
 import Visavis from "./pages/Visavis.vue";
@@ -37,6 +38,10 @@ export default new Router({
     {
       path: "/about",
       component: About
+    },
+    {
+      path: "/portfolio/slots",
+      component: Slots
     },
     {
       path: "/portfolio/orcha",
