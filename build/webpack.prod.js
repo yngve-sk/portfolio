@@ -1,5 +1,4 @@
 "use strict";
-
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
 
@@ -27,8 +26,13 @@ module.exports = merge(common, {
         toType: "dir"
       },
       {
-        from: resolve("README-deploy.md"),
+        from: resolve("deploy/README.md"),
         to: resolve("dist/README.md"),
+        toType: "file"
+      },
+      {
+        from: resolve("deploy/CNAME.md"),
+        to: resolve("dist/CNAME.md"),
         toType: "file"
       }
     ])

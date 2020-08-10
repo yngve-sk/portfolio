@@ -2,7 +2,7 @@
   <v-app>
     <navigation :showNav="navIsShown" />
     <toolbar title="Fabian Bolte" @menuButtonClicked="showMenu" />
-    <v-content dark fill-height>
+    <v-main dark fill-height>
       <transition
         :name="transitionName"
         @before-leave="beforeLeave"
@@ -11,15 +11,15 @@
       >
         <router-view />
       </transition>
-    </v-content>
+    </v-main>
     <footer-component />
   </v-app>
 </template>
 
 <script>
-import FooterComponent from './components/FooterComponent.vue';
-import Navigation from './components/Navigation.vue';
-import Toolbar from './components/Toolbar.vue';
+import FooterComponent from "./components/FooterComponent.vue";
+import Navigation from "./components/Navigation.vue";
+import Toolbar from "./components/Toolbar.vue";
 
 export default {
   components: {
@@ -30,21 +30,21 @@ export default {
   data() {
     return {
       prevHeight: 0,
-      transitionName: 'slide-left',
+      transitionName: "slide-left",
       navIsShown: true
     };
   },
   created() {
     // transition pages to left/right based on path depth
     this.$router.beforeEach((to, from, next) => {
-      const toPath = to.path.split('/');
-      const fromPath = from.path.split('/');
+      const toPath = to.path.split("/");
+      const fromPath = from.path.split("/");
       // remove trailing empty string
-      if (toPath[toPath.length - 1] == '') toPath.pop();
-      if (fromPath[fromPath.length - 1] == '') fromPath.pop();
+      if (toPath[toPath.length - 1] == "") toPath.pop();
+      if (fromPath[fromPath.length - 1] == "") fromPath.pop();
       // compare path depth
       this.transitionName =
-        toPath.length < fromPath.length ? 'slide-right' : 'slide-left';
+        toPath.length < fromPath.length ? "slide-right" : "slide-left";
       next();
     });
   },
@@ -56,7 +56,7 @@ export default {
     enter(element) {
       // scroll to top before slide transition, so that
       // the top of the new page content is visible during the animation
-      document.querySelector('body').scrollTop = 0;
+      document.querySelector("body").scrollTop = 0;
     },
     afterEnter(element) {}
   }
