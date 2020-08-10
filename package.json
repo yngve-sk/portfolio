@@ -16,6 +16,7 @@
   "dependencies": {
     "acorn": "^7.4.0",
     "core-js": "^3.6.5",
+    "elliptic": "^6.5.3",
     "vue": "^2.6.11",
     "vue-router": "^3.4.2",
     "vuetify": "^2.3.8"
