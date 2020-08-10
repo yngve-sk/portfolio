@@ -31,8 +31,8 @@ module.exports = merge(common, {
         toType: "file"
       },
       {
-        from: resolve("deploy/CNAME.md"),
-        to: resolve("dist/CNAME.md"),
+        from: resolve("deploy/CNAME"),
+        to: resolve("dist/CNAME"),
         toType: "file"
       }
     ])
