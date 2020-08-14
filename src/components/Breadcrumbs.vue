@@ -11,17 +11,17 @@ export default {
     breadcrumbs() {
       let breadcrumbs = [];
       let path = this.$route.path;
-      let subPaths = path.split('/');
+      let subPaths = path.split("/");
 
       // remove trailing end
-      if (subPaths[subPaths.length - 1] == '') subPaths.pop();
+      if (subPaths[subPaths.length - 1] == "") subPaths.pop();
 
       // create one breadcrumb per path section
       for (let subPath of subPaths) {
-        let text = subPath == '' ? 'home' : subPath;
+        let text = subPath == "" ? "home" : subPath;
         breadcrumbs.push({
           text,
-          to: '/' + subPath,
+          to: "/" + subPath,
           exact: true,
           ripple: true
         });
@@ -44,19 +44,19 @@ export default {
   /* padding: 0 !important; */
 }
 .v-breadcrumbs__item::before {
-  content: '';
+  content: "";
   width: 9px;
 }
 .v-breadcrumbs__item {
   background-color: #333;
   color: grey !important;
-  border-left: 7px solid #424242;
+  border-left: 7px solid #212121;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   height: 0;
 }
 .v-breadcrumbs__item::after {
-  content: '';
+  content: "";
   position: relative;
   left: 7px;
   border-left: 7px solid #333;
