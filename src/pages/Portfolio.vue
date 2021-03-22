@@ -1,38 +1,18 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col v-for="(project, i) in projects" :key="i" cols="12" sm="6" md="4">
-        <v-card
-          :to="project.link ? '/portfolio/' + project.link : undefined"
-          :disabled="project.link ? false : true"
-          width="100%"
-          height="100%"
-          dark
-          hover
-        >
-          <v-img
-            contain
-            width="100%"
-            aspect-ratio="1.7778"
-            :src="project.image.src"
-            :lazy-src="project.image.placeholder"
-          >
-            <template v-slot:placeholder>
-              <v-row align="center" justify="center" class="ma-0">
-                <v-progress-circular indeterminate color="grey" />
-              </v-row>
-            </template>
-          </v-img>
-          <v-card-title v-text="project.title" />
-          <v-card-text v-text="project.description" />
-        </v-card>
+      <v-col v-for="(project, i) in projects" :key="`proj-${i}`" cols="12" sm="6" md="4">
+        <projectCard v-bind="project" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import ProjectCard from '../components/ProjectCard.vue';
+
 export default {
+  components: { ProjectCard },
   props: {},
   data() {
     return {
