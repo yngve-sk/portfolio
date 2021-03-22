@@ -38,6 +38,12 @@ export default {
     return {
       projects: [
         {
+          title: "Mesh Painter",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "meshpainter",
+          description: "3D mesh annotation via 2D brushing."
+        },
+        {
           title: "Slot Machine",
           image: require("../../assets/images/slots.png"),
           link: "slots",

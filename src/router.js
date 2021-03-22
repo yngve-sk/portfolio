@@ -6,6 +6,7 @@ import Publications from "./pages/Publications.vue";
 import Presentation from "./pages/Presentation.vue";
 import About from "./pages/About.vue";
 
+import MeshPainter from "./pages/MeshPainter.vue";
 import Slots from "./pages/Slots.vue";
 import Orcha from "./pages/Orcha.vue";
 import SplitStreams from "./pages/SplitStreams.vue";
@@ -38,6 +39,10 @@ export default new Router({
     {
       path: "/about",
       component: About
+    },
+    {
+      path: "/portfolio/meshpainter",
+      component: MeshPainter
     },
     {
       path: "/portfolio/slots",
