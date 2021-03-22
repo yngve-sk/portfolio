@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid grid-list-lg mt-n2 height="100%">
-    <v-row justify-center align-center height="100%" pa-6 ma-0>
+  <v-container>
+    <v-row>
       <v-col v-for="pub in bibtexParsed" :key="pub.BIBTEXKEY" cols="12">
-        <publication :bibtex="pub" v-bind="meta[pub.BIBTEXKEY]" />
+        <publication :bibtex="pub" v-bind="meta[pub.BIBTEXKEY]" class="py-6"/>
       </v-col>
     </v-row>
   </v-container>

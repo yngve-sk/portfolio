@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mdiGithubCircle } from '@mdi/js';
+import { mdiGithub } from '@mdi/js';
 import Youtube from '../components/Youtube.vue';
 export default {
   components: {
@@ -61,7 +61,7 @@ export default {
   data() {
     return {
       icons: {
-        github: mdiGithubCircle
+        github: mdiGithub
       }
     };
   },

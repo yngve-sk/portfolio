@@ -2,7 +2,7 @@
   <v-app>
     <navigation :showNav="navIsShown" />
     <toolbar title="Fabian Bolte" @menuButtonClicked="showMenu" />
-    <v-main dark fill-height>
+    <v-main dark>
       <transition
         :name="transitionName"
         @before-leave="beforeLeave"

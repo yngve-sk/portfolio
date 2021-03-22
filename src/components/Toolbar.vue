@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mdiHome, mdiGithubCircle, mdiEmail } from '@mdi/js'
+import { mdiHome, mdiGithub, mdiEmail } from '@mdi/js'
 import Breadcrumbs from './Breadcrumbs.vue';
 
 export default {
@@ -44,7 +44,7 @@ export default {
     return {
       icons: {
         home: mdiHome,
-        github: mdiGithubCircle,
+        github: mdiGithub,
         email: mdiEmail
       }
     }
