@@ -1,16 +1,16 @@
 <template>
-  <v-flex ma-6 height="auto">
+  <v-flex class="ma-6">
     <v-card dark width="100%">
-      <v-container fluid>
-        <v-row justify="space-around" class="pt-4">
-          <v-col cols="10">
-            <v-card-title class="display-1 pa-0" v-text="title" />
+      <v-container class="py-12" fluid>
+        <v-row justify="space-around">
+          <v-col cols="10" class="px-0">
+            <v-card-title class="display-1 px-0 mx-0" v-text="title" />
           </v-col>
-          <v-col cols="10">
-            <v-row justify="space-around">
-              <v-col cols="12" md="6" class="pr-md-6">
+          <v-col cols="10" class="pa-0">
+            <v-row justify="space-around" class="mb-6">
+              <v-col cols="12" md="6" class="pa-3">
                 <v-row cols="12">
-                  <v-card-text v-if="description" class="text-justify pa-0" v-text="description" />
+                  <v-card-text v-if="description" class="text-justify" v-text="description" />
                   <v-card-text
                     v-else-if="descriptionHTML"
                     class="text-justify pa-0"
@@ -25,7 +25,7 @@
                   </v-card-actions>
                 </v-row>
               </v-col>
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="pa-3">
                 <youtube v-if="video" :src="video" flex />
                 <v-img
                   v-else-if="image"
@@ -41,8 +41,8 @@
           </v-col>
         </v-row>
         <v-divider dark />
-        <v-row justify="space-around">
-          <v-col cols="10">
+        <v-row justify="space-around" class="ma-6">
+          <v-col cols="10" class="font-weight-normal">
             <slot />
           </v-col>
         </v-row>

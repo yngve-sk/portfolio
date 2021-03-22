@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid grid-list-lg mt-n2>
-    <v-row justify-center pa-6 ma-0>
+  <v-container fluid>
+    <v-row>
       <v-col v-for="(project, i) in projects" :key="i" cols="12" sm="6" md="4">
         <v-card
           :to="project.link ? '/portfolio/' + project.link : undefined"
@@ -18,7 +18,7 @@
             :lazy-src="project.image.placeholder"
           >
             <template v-slot:placeholder>
-              <v-row align="center" justify="center" ma-0>
+              <v-row align="center" justify="center" class="ma-0">
                 <v-progress-circular indeterminate color="grey" />
               </v-row>
             </template>

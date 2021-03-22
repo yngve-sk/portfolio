@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col v-for="pub in bibtexParsed" :key="pub.BIBTEXKEY" cols="12">
-        <publication :bibtex="pub" v-bind="meta[pub.BIBTEXKEY]" class="py-6"/>
+        <publication :bibtex="pub" v-bind="meta[pub.BIBTEXKEY]" class="py-6" />
       </v-col>
     </v-row>
   </v-container>
