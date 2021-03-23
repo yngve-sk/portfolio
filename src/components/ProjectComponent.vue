@@ -13,7 +13,7 @@
                   <v-card-text v-if="description" class="text-justify" v-text="description" />
                   <v-card-text
                     v-else-if="descriptionHTML"
-                    class="text-justify pa-0"
+                    class="text-justify"
                     v-html="descriptionHTML"
                   />
                   <v-card-actions>
