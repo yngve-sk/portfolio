@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col v-for="(project, i) in projects" :key="`proj-${i}`" cols="12" sm="6" md="4">
-        <projectCard v-bind="project" />
+        <project-card v-bind="project" />
       </v-col>
     </v-row>
   </v-container>

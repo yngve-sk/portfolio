@@ -12,7 +12,8 @@ Vue.use(Vuetify);
 new Vue({
   vuetify: new Vuetify({
     theme: {
-      dark: true
+      dark: true,
+      options: { customProperties: true },
     },
     icons: {
       iconfont: "mdiSvg"
