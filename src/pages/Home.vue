@@ -91,9 +91,9 @@ export default {
         link: '/Publications'
       },
       {
-        name: 'Presentation',
+        name: 'Presentations',
         icon: mdiPresentation,
-        link: '/presentation'
+        link: '/presentations'
       },
       {
         name: 'About',

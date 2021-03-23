@@ -3,7 +3,7 @@ import Router from "vue-router";
 import Home from "./pages/Home.vue";
 import Portfolio from "./pages/Portfolio.vue";
 import Publications from "./pages/Publications.vue";
-import Presentation from "./pages/Presentation.vue";
+import Presentations from "./pages/Presentations.vue";
 import About from "./pages/About.vue";
 
 import MeshPainter from "./pages/MeshPainter.vue";
@@ -33,8 +33,8 @@ export default new Router({
       component: Publications
     },
     {
-      path: "/presentation",
-      component: Presentation
+      path: "/presentations",
+      component: Presentations
     },
     {
       path: "/about",
