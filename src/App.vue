@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <navigation :showNav="navIsShown" />
-    <toolbar title="Fabian Bolte" @menuButtonClicked="showMenu" />
+    <toolbar title="Yngve Kristiansen" @menuButtonClicked="showMenu" />
     <v-main dark>
       <transition
         :name="transitionName"

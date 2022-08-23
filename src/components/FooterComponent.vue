@@ -1,7 +1,7 @@
 <template>
   <v-footer dark height="auto">
     <v-flex text-center xs12>
-      &copy;{{year}} — <strong>Fabian Bolte</strong>
+      &copy;{{year}} — <strong>Yngve Kristiansen</strong>
     </v-flex>
   </v-footer>
 </template>
