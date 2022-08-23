@@ -18,6 +18,42 @@ export default {
     return {
       projects: [
         {
+          title: "Visception",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "visception",
+          description: "YK-project-2DO."
+        },
+        {
+          title: "Content Driven Layout",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "content-driven-layout",
+          description: "YK-project-2DO."
+        },
+        {
+          title: "Semantic Snapping",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "semantic-snapping",
+          description: "YK-project-2DO."
+        },
+        {
+          title: "WebGL Volume Renderer",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "webgl-volume",
+          description: "YK-project-2DO."
+        },
+        {
+          title: "D3 Window",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "d3-window",
+          description: "YK-project-2DO."
+        },
+        {
+          title: "Drags",
+          image: require("../../assets/images/mesh-painter.png"),
+          link: "drags",
+          description: "YK-project-2DO."
+        },
+        {
           title: "Mesh Painter",
           image: require("../../assets/images/mesh-painter.png"),
           link: "meshpainter",

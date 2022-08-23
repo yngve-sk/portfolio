@@ -15,6 +15,13 @@ import OLD from "./pages/OLD.vue";
 import Master from "./pages/Master.vue";
 import Macula from "./pages/Macula.vue";
 import Future from "./pages/Future.vue";
+
+import WebGLVolume from './pages/WebGLVolume.vue'
+import Visception from './pages/Visception.vue'
+import D3Window from './pages/D3Window.vue'
+import Drags from './pages/Drags.vue'
+import ContentDrivenLayout from './pages/ContentDrivenLayout.vue'
+import SemanticSnapping from './pages/SemanticSnapping.vue'
 Vue.use(Router);
 
 export default new Router({
@@ -39,6 +46,30 @@ export default new Router({
     {
       path: "/about",
       component: About
+    },
+    {
+      path: "/portfolio/visception",
+      component: Visception
+    },
+    {
+      path: "/portfolio/webgl-volume",
+      component: WebGLVolume
+    },
+    {
+      path: "/portfolio/semantic-snapping",
+      component: SemanticSnapping
+    },
+    {
+      path: "/portfolio/content-driven-layout",
+      component: ContentDrivenLayout
+    },
+    {
+      path: "/portfolio/drags",
+      component: Drags
+    },
+    {
+      path: "/portfolio/d3-window",
+      component: D3Window
     },
     {
       path: "/portfolio/meshpainter",
