@@ -4,30 +4,23 @@
       <p>
         The following features are provided:
         <ul>
-          <li>Web-based IDE</li>
-          <li>Live compilation</li>
-          <li>Visual code history</li>
-          <li>Automatic version control</li>
-          <li>Instant code difference</li>
-          <li>Instant revision checkout</li>
-          <li>Visual result difference</li>
-          <li>Predefined result interactions</li>
+          <li>Web-based Editor</li>
+          <li>Turn data into a wide range of different charts</li>
+          <li>Compose different charts by nesting them within each other</li>
+          <li>Implicitly handles data in the background using arrow.js columnar storage</li>
+          <li>Rich set of drag & drop operations to map data to individual charts or visual channels</li>
+          <li>Undo/redo</li>
+          <li>History navigation: See all actions of the design visually, and revert the design to a certain point</li>
+          <li>High degree of expression</li>
         </ul>
       </p>
       <p>
-        The client-side is utilizing standard web technologies including HTML5,
-        CSS3, and JavaScript (ES6). The interface is based on Golden Layout,
-        allowing for a user-defined positioning of windows, as well as the closing
-        and maximizing of individual windows. Source code can be written in the
-        Ace Editor which provides basic syntax highlighting. The visual result of
-        the source code is presented in an interactive canvas element. The
-        visualization of the Git tree is based on D3.js and Git differences are
-        shown using the diff2html library. The server side is written in C++ as an
-        extension to Volumeshop. Communication to the client is based on AJAX
-        calls exchanging JSON objects. Based on the chosen programming language,
-        received source code runs either through the Diderot or the GCC compiler.
-        Successfully compiled source code is stored in a local Git repository via
-        libgit2.
+        The application uses standard web technologies including HTML,
+        CSS, and JavaScript ES6. The interface is based on a windowing library
+        allowing for both gridded and floating windows. Data can be loaded, viewed in the Data View.
+        When a data attribute is dragged, potential drop areas associated with mapping actions appear.
+        This editor provided the basis for the first two publications of my PhD project, and
+        has been an environment to experiment with many different technologies and features.
       </p>
     </div>
   </project-component>
@@ -41,12 +34,12 @@ export default {
   data() {
     return {
       data: {
-        title: 'Vis-a-Vis',
+        title: 'Visception',
         image: require('../../assets/images/source.png'),
-        description: `Vis-a-Vis is a client-server architecture for the visual exploration of code development workflows.
-        It improves the users’ understanding of code changes and their impact on the algorithm’s functionality.
+        description: `Visception is a editor for nested visualizations of tabular data. Initially implemented in
+        Angular 1, before gradually porting the components over to Vue.js.
         `,
-        video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
+        video: "https://www.youtube.com/watch?v=avUf14X-UWs"
       }
     };
   }
