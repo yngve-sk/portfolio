@@ -19,7 +19,7 @@ export default {
       projects: [
         {
           title: "Visception",
-          image: require("../../assets/images2/vsc_visception-gui.png"),
+          image: {src: "/assets/images2/vsc_visception-gui.png"},
           link: "visception",
           description: "Visual builder for designing highly detailed nested visualizations."
         },
@@ -36,10 +36,10 @@ export default {
           description: "YK-project-2DO."
         },
         {
-          title: "WebGL Volume Renderer",
-          image: require("../../assets/images/mesh-painter.png"),
+          title: "Volume Renderer in the web browser",
+          image: { src: "/assets/images2/webglvr_windowing-addsubview.gif" },
           link: "webgl-volume",
-          description: "YK-project-2DO."
+          description: "WebGL+Angular powered medical volume renderer"
         },
         {
           title: "D3 Window",
