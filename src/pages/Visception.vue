@@ -34,6 +34,32 @@
           <li>...several other smaller libraries for specific functionalities</li>
         </ul>
       </p>
+      <p>
+        Example visualizations generated with the editor:
+      </p>
+      <div 
+        style="
+              display: inline-flex;
+              position: relative;
+              flex-wrap: wrap;
+            "
+      >
+        <div 
+          v-for="img in data.imageArray" 
+          :key="img.src"
+          class="array-imgs"
+        >
+          <a 
+            :href="img.src"
+          >
+            <img 
+              class="array-img"
+              :src="img.src"
+            >
+          </a>
+        </div>
+      </div>
+      </p>
     </div>
   </project-component>
 </template>
@@ -47,15 +73,62 @@ export default {
     return {
       data: {
         title: 'Visception',
-        image: require('../../assets/images/source.png'),
-        description: `Visception is a editor for nested visualizations of tabular data. Initially implemented in
-        Angular 1, before gradually porting the components over to Vue.js.
+        image: require('../../assets/images2/vsc_visception-gui.png'),
+        descriptionHTML: `Visception is a editor for creating highly expressive nested visualizations of tabular data, while also controlling the design at different hierarchical levels. Initially implemented in Angular 1, before gradually porting the components over to Vue.js. This is a closed source project.
         `,
-        video: "https://www.youtube.com/watch?v=avUf14X-UWs"
+        imageArray: [
+          'VisceptionExSuicideBarsGlass.png',
+          'bookshelf-ex0.png',
+          'titanic-1.png',
+          'titanic-2.png',
+          'titanic-4.png',
+          'titanic-ex3-v4.png',
+          'rb-america-ex0.png',
+          'suicide-ex0-larger-txt-bold.png',
+          'mushrooms-ex1-shadowed.png',
+          'mushrooms-ex2.png',
+          'mushrooms200-ex1.png',
+          'mushrooms200-ex3.png',
+          'nightingale.png',
+          'twts-ex0.png',
+          'TWTSBubbles.png',
+          'TWTSColumns.png',
+          'TWTSDetailed.png',
+          'TWTSOriginal.png',
+          'cars-ex0.png',
+          'cars-ex4.png',
+          'cars-ex5.png',
+        ].map((v) => require(`../../assets/images2/vsc_${v}`)),
+        video: "https://www.youtube-nocookie.com/embed/avUf14X-UWs"
       }
     };
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .array-imgs {
+    margin: 12px;
+    border-radius: 2px;
+    height: 120px;
+    overflow: hidden;
+    transition: all 250ms ease-out;
+    box-shadow: 1px 1px 25px #ffffff47;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+
+  .array-imgs:hover {
+    transform: scale(2);
+  }
+
+  .array-imgs>a {
+    display: block;
+  }
+
+  .array-imgs>a>img {
+    height: 100px
+  }
+</style>

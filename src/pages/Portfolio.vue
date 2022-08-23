@@ -19,9 +19,9 @@ export default {
       projects: [
         {
           title: "Visception",
-          image: require("../../assets/images/mesh-painter.png"),
+          image: require("../../assets/images2/vsc_visception-gui.png"),
           link: "visception",
-          description: "YK-project-2DO."
+          description: "Visual builder for designing highly detailed nested visualizations."
         },
         {
           title: "Content Driven Layout",
