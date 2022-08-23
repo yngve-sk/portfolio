@@ -11,16 +11,28 @@
           <li>Rich set of drag & drop operations to map data to individual charts or visual channels</li>
           <li>Undo/redo</li>
           <li>History navigation: See all actions of the design visually, and revert the design to a certain point</li>
-          <li>High degree of expression</li>
+          <li>Storing / executing undo/redo history on demand (useful for testing & development)</li>
         </ul>
       </p>
       <p>
-        The application uses standard web technologies including HTML,
-        CSS, and JavaScript ES6. The interface is based on a windowing library
+        The interface is based on a windowing library
         allowing for both gridded and floating windows. Data can be loaded, viewed in the Data View.
         When a data attribute is dragged, potential drop areas associated with mapping actions appear.
         This editor provided the basis for the first two publications of my PhD project, and
         has been an environment to experiment with many different technologies and features.
+      </p>
+      <p>
+        Most prominent technologies used:
+        <ul>
+          <li>HTML+CSS+JavaScript ES6</li>
+          <li>D3.js</li>
+          <li>Angular, later ported to VueJS</li>
+          <li>Vuex</li>
+          <li>arrow.js</li>
+          <li>Stylus</li>
+          <li>Grunt, later switched to Webpack</li>
+          <li>...several other smaller libraries for specific functionalities</li>
+        </ul>
       </p>
     </div>
   </project-component>
