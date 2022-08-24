@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --config build/webpack.dev.js",
+    "dev": "webpack serve --config build/webpack.dev.js --port=8001",
     "build": "webpack --config build/webpack.prod.js",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix"
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "acorn": "^8.1.0",
+    "caniuse-lite": "^1.0.30001382",
     "core-js": "^3.9.1",
     "elliptic": "^6.5.4",
     "vue": "^2.6.12",
@@ -34,7 +35,7 @@
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
-    "eslint-loader": "^2.2.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
