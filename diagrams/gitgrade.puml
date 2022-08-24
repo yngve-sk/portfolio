@@ -1,0 +1,44 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+!include DEVICONS/angular.puml
+!include DEVICONS/dotnet.puml
+!include DEVICONS/java.puml
+!include DEVICONS/msql_server.puml
+!include FONTAWESOME/server.puml
+!include FONTAWESOME/envelope.puml
+
+' LAYOUT_TOP_DOWN()
+' LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
+
+title Diagram for gitlab course management system
+
+Person(student, Student)
+Person(ta, TA, "Student teaching assistant")
+Person(admin, Teacher, "Teacher of course")
+System_Ext(git, "UiB GitLab")
+System_Ext(runners, "Runners", "Kubernetes runners")
+System_Ext(resultsrepo, "Results repository", "Git repository where all student results are kept")
+
+Container(managementsys, "Course Management System", "Functionality (python scripts that do GitLab API calls) to manage the course")
+Container(pipeline, "Pipeline", ".yml script that runs automatic testing & gives feedback")
+
+Container(assignment, "Assignment", "Coursework assignments for students")
+Rel(assignment, git, "Exists on")
+Rel(admin, assignment, "Creates")
+Rel(managementsys, assignment, "Reads TA feedback")
+Rel(managementsys, resultsrepo, "Writes & consolidates automatically fetched TA feedback")
+Rel(ta, assignment, "Grades & comments")
+'Rel(managementsys, assignment, "Automatically tests & comments via git")
+Rel(student, assignment, "Works on")
+Rel(git, runners, "Uses to run pipelines")
+Rel(runners, pipeline, "Invokes")
+Rel(pipeline, assignment, "Automatically tests & comments via git")
+Rel(admin, managementsys, "Controls")
+'Rel_Neighbor(git, resultsrepo, "Holds")
+
+@enduml

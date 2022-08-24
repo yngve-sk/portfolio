@@ -54,6 +54,12 @@ export default {
           description: "YK-project-2DO."
         },
         {
+          title: "Git-based Course AutoGrading System",
+          image: require("../../assets/images2/gitlab-ci-pipelines.png"),
+          link: "course-management-sys",
+          description: "System for managing grading, students and TA's in programming courses."
+        },
+        {
           title: "Mesh Painter",
           image: require("../../assets/images/mesh-painter.png"),
           link: "meshpainter",

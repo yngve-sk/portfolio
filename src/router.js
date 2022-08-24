@@ -22,6 +22,7 @@ import D3Window from './pages/D3Window.vue'
 import Drags from './pages/Drags.vue'
 import ContentDrivenLayout from './pages/ContentDrivenLayout.vue'
 import SemanticSnapping from './pages/SemanticSnapping.vue'
+import Grading from './pages/Grading.vue'
 Vue.use(Router);
 
 export default new Router({
@@ -70,6 +71,10 @@ export default new Router({
     {
       path: "/portfolio/d3-window",
       component: D3Window
+    },
+    {
+      path: "/portfolio/course-management-sys",
+      component: Grading
     },
     {
       path: "/portfolio/meshpainter",
