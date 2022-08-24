@@ -1,21 +1,21 @@
 <template>
   <v-container id="home-container" v-resize="onResize" pa-0 fluid>
     <div class="wrapper" :style="{width: contentSize.x, height: contentSize.y}">
-      <div id="imageContainer" :style="{marginLeft: imageX}">
+      <div id="imageContainer" style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">
         <img
           id="profileImage"
-          :src="`./assets/svg/profile-reduced.svg`"
+          :src="`./assets/svg/yngve_vectorized.svg`"
           alt="stylized profile image"
           style="height: 100%"
           @load="onImageLoad($event)"
-        />
-        <img
+        >
+        <!--img
           id="profileImageStrokes"
           :src="`./assets/svg/profilestrokes_animated.svg?a=`+ random"
           alt="animated edges of profile image"
           style="height: 100%"
           @load="onStrokesLoad($event)"
-        />
+        -->
       </div>
       <v-flex
         id="linkWrapper"
@@ -26,7 +26,7 @@
         pl-lg-12
       >
         <v-card class="pageLink" v-for="(page, i) in pages" :key="i">
-          <v-btn :to="page.link" elevation="24">
+          <v-btn :to="page.link" elevation="24" style="justify-content: flex-start; align-items: center;">
             <v-icon class="mr-3">{{page.icon}}</v-icon>
             {{page.name}}
           </v-btn>
@@ -103,7 +103,7 @@ export default {
     ]
   }),
   mounted() {
-    initProfile();
+    // initProfile();
   },
   methods: {
     onImageLoad(event) {
@@ -147,18 +147,25 @@ export default {
 }
 
 #linkWrapper {
-  flex: 10;
-  position: absolute;
-  left: 10%;
-  top: 40%;
-  height: 40%;
-  width: 100%;
+    flex: 10;
+    position: absolute;
+    left: 6%;
+    top: 40%;
+    height: 40%;
+    /* width: 100%; */
+    padding-right: 25px;
+    padding-left: 25px !important;
+    background: #f0d7b9ad;
+    border-bottom-right-radius: 10px;
+    border-radius: 10px
 }
 .pageLink {
   width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   min-width: fit-content;
 }
+
+.pageLink>a { width: 100%; }
 
 .pageLink .v-btn {
   background-color: #454545 !important;
