@@ -4,30 +4,13 @@
       <p>
         The following features are provided:
         <ul>
-          <li>Web-based IDE</li>
-          <li>Live compilation</li>
-          <li>Visual code history</li>
-          <li>Automatic version control</li>
-          <li>Instant code difference</li>
-          <li>Instant revision checkout</li>
-          <li>Visual result difference</li>
-          <li>Predefined result interactions</li>
+          <li>Composition of existing charts into a multi-chart design</li>
+          <li>Automatic detection of design ambiguities between views</li>
+          <li>One-click resolution of detected problems</li>
         </ul>
       </p>
       <p>
-        The client-side is utilizing standard web technologies including HTML5,
-        CSS3, and JavaScript (ES6). The interface is based on Golden Layout,
-        allowing for a user-defined positioning of windows, as well as the closing
-        and maximizing of individual windows. Source code can be written in the
-        Ace Editor which provides basic syntax highlighting. The visual result of
-        the source code is presented in an interactive canvas element. The
-        visualization of the Git tree is based on D3.js and Git differences are
-        shown using the diff2html library. The server side is written in C++ as an
-        extension to Volumeshop. Communication to the client is based on AJAX
-        calls exchanging JSON objects. Based on the chosen programming language,
-        received source code runs either through the Diderot or the GCC compiler.
-        Successfully compiled source code is stored in a local Git repository via
-        libgit2.
+        Since this is built on top of Visception, the additionaly implemented features were high-level traversals over existing charts. Similar to Visception, this project is closed source.
       </p>
     </div>
   </project-component>
@@ -41,12 +24,11 @@ export default {
   data() {
     return {
       data: {
-        title: 'Vis-a-Vis',
-        image: require('../../assets/images/source.png'),
-        description: `Vis-a-Vis is a client-server architecture for the visual exploration of code development workflows.
-        It improves the users’ understanding of code changes and their impact on the algorithm’s functionality.
+        title: 'Semantic Snapping',
+        image: require("../../assets/images2/semsnap-casestudy2.png"),
+        descriptionHTML: `Semantic Snapping is an experimental approach for guiding multi-view visualization design, implemented on top of the <a href="#/portfolio/visception">Visception</a> system. The core idea is to automatically detect design conflicts or ambiguities <i>between</i> views, and also automatically generate revisions that will resolve those problems. In practice, the user is able to review design ambiguities on a per-view basis, and also view and execute understandable operations by simply clicking them. We expressed relations between views with predicate logic, and corresponding operations. In practice, we implemented these predicate logic rules as functions evaluating and operating on underlying Visception chart specifications.
         `,
-        video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
+        // video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
       }
     };
   }
