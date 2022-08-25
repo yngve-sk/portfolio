@@ -4,30 +4,19 @@
       <p>
         The following features are provided:
         <ul>
-          <li>Web-based IDE</li>
-          <li>Live compilation</li>
-          <li>Visual code history</li>
-          <li>Automatic version control</li>
-          <li>Instant code difference</li>
-          <li>Instant revision checkout</li>
-          <li>Visual result difference</li>
-          <li>Predefined result interactions</li>
+          <li>One-click transformation of grid layout to content-driven layout</li>
+          <li>Accurate repulsion of highly irregular shapes</li>
+          <li>Attractive forces based on grid layout topology</li>
         </ul>
       </p>
       <p>
-        The client-side is utilizing standard web technologies including HTML5,
-        CSS3, and JavaScript (ES6). The interface is based on Golden Layout,
-        allowing for a user-defined positioning of windows, as well as the closing
-        and maximizing of individual windows. Source code can be written in the
-        Ace Editor which provides basic syntax highlighting. The visual result of
-        the source code is presented in an interactive canvas element. The
-        visualization of the Git tree is based on D3.js and Git differences are
-        shown using the diff2html library. The server side is written in C++ as an
-        extension to Volumeshop. Communication to the client is based on AJAX
-        calls exchanging JSON objects. Based on the chosen programming language,
-        received source code runs either through the Diderot or the GCC compiler.
-        Successfully compiled source code is stored in a local Git repository via
-        libgit2.
+        Technologies used:
+        <ul>
+          <li>VueJS+TypeScript</li>
+          <li>D3 for the force simulation</li>
+          <li>VegaLite for rendering chart specs</li>
+          <li>Tailwind.css for styling</li>
+        </ul>
       </p>
     </div>
   </project-component>
@@ -41,12 +30,11 @@ export default {
   data() {
     return {
       data: {
-        title: 'Vis-a-Vis',
-        image: require('../../assets/images/source.png'),
-        description: `Vis-a-Vis is a client-server architecture for the visual exploration of code development workflows.
-        It improves the users’ understanding of code changes and their impact on the algorithm’s functionality.
+        title: 'Content-Driven layout',
+        image: require("../../assets/images2/semsnap-casestudy2.png"),
+        description: `Content-Driven Layout is a force-directed layout using computer vision techniques to resolve collisions between arbitrary shapes. The main idea is to turn a grid layout into a layout where shapes are positioned according to contents rather than bounding boxes. This is done by basing the repulsive force on the distance transforms (where each pixel encodes distance to nearest content pixel) of each individual element.
         `,
-        video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
+        // video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
       }
     };
   }
