@@ -6,7 +6,7 @@
           id="profileImage"
           :src="`./assets/svg/yngve_vectorized.svg`"
           alt="stylized profile image"
-          style="height: 100%"
+          style="max-height: 100%; max-width: 100%;"
           @load="onImageLoad($event)"
         >
         <!--img
