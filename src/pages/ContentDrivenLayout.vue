@@ -31,8 +31,12 @@ export default {
     return {
       data: {
         title: 'Content-Driven layout',
-        image: require("../../assets/images2/semsnap-casestudy2.png"),
-        description: `Content-Driven Layout is a force-directed layout using computer vision techniques to resolve collisions between arbitrary shapes. The main idea is to turn a grid layout into a layout where shapes are positioned according to contents rather than bounding boxes. This is done by basing the repulsive force on the distance transforms (where each pixel encodes distance to nearest content pixel) of each individual element.
+        image: { src: '/assets/images2/cdl_turbines.gif'},
+        descriptionHTML: `<p>Content-Driven Layout is a force-directed layout using computer vision techniques to resolve collisions between arbitrary shapes. The main idea is to turn a grid layout into a layout where shapes are positioned according to contents rather than bounding boxes. This is done by basing the repulsive force on the distance transforms (where each pixel encodes distance to nearest content pixel) of each individual element.</p>
+
+        <img style="width: 80%; margin: 10%" src="/assets/images2/cdl_lungsdt.png">
+        <p>This figure shows an image of lungs, and the according computed distance transform, and its gradient rendered as arrows.</p>
+
         `,
         // video: "https://www.youtube-nocookie.com/embed/5XO6BU4j1KQ"
       }

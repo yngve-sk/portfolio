@@ -25,9 +25,9 @@ export default {
         },
         {
           title: "Content Driven Layout",
-          image: require("../../assets/images/mesh-painter.png"),
+          image: { src: '/assets/images2/cdl_lungs.gif' },
           link: "content-driven-layout",
-          description: "Computer-vision based force layout."
+          description: "Image-based force layout."
         },
         {
           title: "Semantic Snapping",
