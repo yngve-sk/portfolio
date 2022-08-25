@@ -37,7 +37,7 @@
       <p>
         Example visualizations generated with the editor:
       </p>
-      <div 
+      <div
         style="
               display: inline-flex;
               position: relative;
@@ -74,7 +74,7 @@ export default {
       data: {
         title: 'Visception',
         image: require('../../assets/images2/vsc_visception-gui.png'),
-        descriptionHTML: `Visception is a editor for creating highly expressive nested visualizations of tabular data, while also controlling the design at different hierarchical levels. Initially implemented in Angular 1, before gradually porting the components over to Vue.js. This is a closed source project with a large codebase.
+        descriptionHTML: `Visception is an editor for creating highly expressive nested visualizations of tabular data, while also controlling the design at different hierarchical levels. Initially implemented in Angular 1, before gradually porting the components over to Vue.js. This is a closed source project with a large codebase and a lot of logic packed into it. <a href="/#/portfolio/visception/codebase">Click here to see the codebase visualized as a zoomable treemap</a>
         `,
         imageArray: [
           'VisceptionExSuicideBarsGlass.png',
