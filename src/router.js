@@ -18,6 +18,7 @@ import Future from "./pages/Future.vue";
 
 import WebGLVolume from './pages/WebGLVolume.vue'
 import Visception from './pages/Visception.vue'
+import VisceptionCodebase from './pages/VisceptionCodebase.vue'
 import D3Window from './pages/D3Window.vue'
 import Drags from './pages/Drags.vue'
 import ContentDrivenLayout from './pages/ContentDrivenLayout.vue'
@@ -51,6 +52,10 @@ export default new Router({
     {
       path: "/portfolio/visception",
       component: Visception
+    },
+    {
+      path: "/portfolio/visception/codebase",
+      component: VisceptionCodebase
     },
     {
       path: "/portfolio/webgl-volume",
