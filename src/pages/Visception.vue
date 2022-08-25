@@ -44,15 +44,15 @@
               flex-wrap: wrap;
             "
       >
-        <div 
-          v-for="img in data.imageArray" 
+        <div
+          v-for="img in data.imageArray"
           :key="img.src"
           class="array-imgs"
         >
-          <a 
+          <a
             :href="img.src"
           >
-            <img 
+            <img
               class="array-img"
               :src="img.src"
             >
@@ -74,7 +74,7 @@ export default {
       data: {
         title: 'Visception',
         image: require('../../assets/images2/vsc_visception-gui.png'),
-        descriptionHTML: `Visception is a editor for creating highly expressive nested visualizations of tabular data, while also controlling the design at different hierarchical levels. Initially implemented in Angular 1, before gradually porting the components over to Vue.js. This is a closed source project.
+        descriptionHTML: `Visception is a editor for creating highly expressive nested visualizations of tabular data, while also controlling the design at different hierarchical levels. Initially implemented in Angular 1, before gradually porting the components over to Vue.js. This is a closed source project with a large codebase.
         `,
         imageArray: [
           'VisceptionExSuicideBarsGlass.png',
