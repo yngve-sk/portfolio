@@ -23,48 +23,10 @@
 <script>
 const d3 = require('d3')
 
-const generateZoomableTreemap = ({ width, height, data, container }) => {
-  container = d3.select(container)
-  
-  const x = d3.scaleLinear().rangeRound([0, width]);
-  const y = d3.scaleLinear().rangeRound([0, height]);
-
-  const svg = container.append("svg")
-      .attr("viewBox", [0.5, -30.5, width, height + 30])
-      .attr('class', 'treemap-svg')
-      .style("font", "10px sans-serif");
-
-  const tile = (node, x0, y0, x1, y1) => {
-    d3.treemapBinary(node, 0, 0, width, height);
-    for (const child of node.children) {
-      child.x0 = x0 + child.x0 / width * (x1 - x0);
-      child.x1 = x0 + child.x1 / width * (x1 - x0);
-      child.y0 = y0 + child.y0 / height * (y1 - y0);
-      child.y1 = y0 + child.y1 / height * (y1 - y0);
-    }
-  }
-
-  /**
-   * Generates a layout given a root TreeNode
-   */
-  const genTreemapLayout = (fromRootNode) => {
-    const hierarchy = d3.hierarchy(fromRootNode)
-                        .sum(d => {
-                          return d.code
-                        })
-                        .sort((a, b) => {
-                          return b.code - a.code
-                        })
-
-    return d3.treemap().tile(tile)(hierarchy)
-  }
-
-  const name = d => d.ancestors().reverse().map(d => d.data.name).join("/")
-  const format = d3.format(",d")
-
-  /**
+ /**
    * uid logic from: https://github.com/observablehq/stdlib/blob/main/src/dom/uid.mjs
-   */
+   * Must be global or there will be id conflicts across different instances of treemaps
+   **/
   const DOM = {}
   DOM.count = 0;
 
@@ -81,6 +43,46 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
     return new Id("O-" + (name == null ? "" : name + "-") + ++DOM.count);
   }
 
+const generateZoomableTreemap = ({ width, height, data, container }) => {
+  container = d3.select(container)
+  
+  const x = d3.scaleLinear().rangeRound([0, width]);
+  const y = d3.scaleLinear().rangeRound([0, height]);
+
+  const svg = container.append("svg")
+      .attr("viewBox", [0.5, -30.5, width, height + 30])
+      .attr('class', 'treemap-svg')
+      .style("font", "10px sans-serif");
+
+  const tile = (node, x0, y0, x1, y1) => {
+    d3.treemapSquarify(node, 0, 0, width, height);
+    for (const child of node.children) {
+      child.x0 = x0 + child.x0 / width * (x1 - x0);
+      child.x1 = x0 + child.x1 / width * (x1 - x0);
+      child.y0 = y0 + child.y0 / height * (y1 - y0);
+      child.y1 = y0 + child.y1 / height * (y1 - y0);
+    }
+  }
+
+  /**
+   * Generates a layout given a root TreeNode
+   */
+  const genTreemapLayout = (fromRootNode) => {
+    const hierarchy = d3.hierarchy(fromRootNode)
+                        .sum(d => {
+                          return d.children.length > 0 ? 0 : d.code
+                        })
+                        .sort((a, b) => {
+                          return b.code - a.code
+                        })
+
+    return d3.treemap()
+          // .tile(tile)
+          (hierarchy)
+  }
+
+  const name = d => d.ancestors().reverse().map(d => d.data.name).join("/")
+  const format = d3.format(",d")
 
   const render = (group, root) => {
     const node = group
@@ -109,23 +111,30 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
         .attr("clip-path", d => d.clipUid)
         .attr("font-weight", d => d === root ? "bold" : null)
       .selectAll("tspan")
-      .data(d => (d === root ? `${name(d)}/` : d.data.name).split(/(?=[A-Z][^A-Z])/g).concat(format(d.data.code)))
+      .data(d => {
+        return [d.data.name, d.data.code]
+        // return (d === root ? `${name(d)}/` : d.data.name).split(/(?=[A-Z][^A-Z])/g).concat(format(d.data.code))
+        }
+      )
       .join("tspan")
         .attr("x", 3)
         .attr("y", (d, i, nodes) => `${(i === nodes.length - 1) * 0.3 + 1.1 + i * 0.9}em`)
         .attr("fill-opacity", (d, i, nodes) => i === nodes.length - 1 ? 0.7 : null)
         .attr("font-weight", (d, i, nodes) => i === nodes.length - 1 ? "normal" : null)
-        .text(d => d);
+        .text((d, i) => i === 0 ? d : `${d} lines of code`);
 
     group.call(position, root);
   }
 
   const position = (group, root) => {
-    group.selectAll("g")
+    const groups = group.selectAll("g")
         .attr("transform", d => d === root ? `translate(0,-30)` : `translate(${x(d.x0)},${y(d.y0)})`)
-      .select("rect")
+
+    const rects = groups.select("rect")
         .attr("width", d => d === root ? width : x(d.x1) - x(d.x0))
         .attr("height", d => d === root ? 30 : y(d.y1) - y(d.y0));
+
+    const texts = groups.select('text')
   }
 
   let group = svg.append("g")
