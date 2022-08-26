@@ -1,15 +1,15 @@
 "filename", "language", "JSON", "JavaScript", "Shell Script", "comment", "blank", "total"
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\.couchdb-info.json", "JSON", 6, 0, 0, 0, 0, 6
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\.mailer-info.json", "JSON", 4, 0, 0, 0, 0, 4
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\couchdb.js", "JavaScript", 0, 136, 0, 8, 34, 178
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\database.js", "JavaScript", 0, 19, 0, 0, 6, 25
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\mailer.js", "JavaScript", 0, 17, 0, 4, 8, 29
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\osx-clean-couchdb.sh", "Shell Script", 0, 0, 4, 4, 3, 11
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\users.js", "JavaScript", 0, 142, 0, 5, 49, 196
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\backend\validate-credentials.js", "JavaScript", 0, 28, 0, 0, 4, 32
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\init-couchdb.sh", "Shell Script", 0, 0, 5, 8, 5, 18
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\package-lock.json", "JSON", 5048, 0, 0, 0, 1, 5049
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\package.json", "JSON", 35, 0, 0, 0, 1, 36
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\server-globals.js", "JavaScript", 0, 20, 0, 2, 5, 27
-"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server-v2LC\server.js", "JavaScript", 0, 210, 0, 12, 52, 274
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\.couchdb-info.json", "JSON", 6, 0, 0, 0, 0, 6
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\.mailer-info.json", "JSON", 4, 0, 0, 0, 0, 4
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\couchdb.js", "JavaScript", 0, 136, 0, 8, 34, 178
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\database.js", "JavaScript", 0, 19, 0, 0, 6, 25
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\mailer.js", "JavaScript", 0, 17, 0, 4, 8, 29
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\osx-clean-couchdb.sh", "Shell Script", 0, 0, 4, 4, 3, 11
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\users.js", "JavaScript", 0, 142, 0, 5, 49, 196
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\backend\validate-credentials.js", "JavaScript", 0, 28, 0, 0, 4, 32
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\init-couchdb.sh", "Shell Script", 0, 0, 5, 8, 5, 18
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\package-lock.json", "JSON", 5048, 0, 0, 0, 1, 5049
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\package.json", "JSON", 35, 0, 0, 0, 1, 36
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\server-globals.js", "JavaScript", 0, 20, 0, 2, 5, 27
+"c:\Users\Yngve\Documents\Repositories\Visception\Visception\server\application-server\server.js", "JavaScript", 0, 210, 0, 12, 52, 274
 "Total", "-", 5093, 572, 9, 43, 168, 5885

@@ -9,14 +9,20 @@
       for doing in parallel with a PhD. The biggest part of the logic is within
       the client:
     </p>
-    <div ref="codebase_client" class="codebase-treemap-container"></div>
-    During development, we were running this client with a test server, letting
-    users save designs, and load them on demand:
-    <div ref="codebase_testserver" class="codebase-treemap-container"></div>
-    I also started (but did not finish) an application server for managing user
+    <div class="treemap-wrapper">
+      <div ref="codebase_client" class="codebase-treemap-container"></div>
+    </div>
+    <p>During development, we were running this client with a test server, letting
+    users save designs, and load them on demand:</p>
+    <div class="treemap-wrapper">
+      <div ref="codebase_testserver" class="codebase-treemap-container"></div>
+    </div>
+    <p>I also started (but did not finish) an application server for managing user
     accounts, aspiring to deploy the Visception editor as an online
-    visualization design tool.
-    <div ref="codebase_appserver" class="codebase-treemap-container"></div>
+    visualization design tool.</p>
+    <div class="treemap-wrapper">
+      <div ref="codebase_appserver" class="codebase-treemap-container"></div>
+    </div>
   </div>
 </template>
 
@@ -45,13 +51,18 @@ const d3 = require('d3')
 
 const generateZoomableTreemap = ({ width, height, data, container }) => {
   container = d3.select(container)
-  
+
   const x = d3.scaleLinear().rangeRound([0, width]);
   const y = d3.scaleLinear().rangeRound([0, height]);
 
+  const topBarHeight = 30
+  const useHeight = height
+
   const svg = container.append("svg")
-      .attr("viewBox", [0.5, -30.5, width, height + 30])
+      .attr("viewBox", [0, -topBarHeight, width, height + topBarHeight])
       .attr('class', 'treemap-svg')
+      .style('width', '100%')
+      .style('height', '100%')
       .style("font", "10px sans-serif");
 
   const tile = (node, x0, y0, x1, y1) => {
@@ -77,7 +88,8 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
                         })
 
     return d3.treemap()
-          // .tile(tile)
+          .size([1, 1])
+          .tile(tile)
           (hierarchy)
   }
 
@@ -99,6 +111,8 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
 
     node.append("rect")
         .attr("id", d => (d.leafUid = DOM.uid("leaf")).id)
+        .classed("root", d => d === root)
+        .attr("class", "svg-rect")
         .attr("fill", d => d === root ? "#fff" : d.children ? "#ccc" : "#ddd")
         .attr("stroke", "#fff");
 
@@ -110,18 +124,39 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
     node.append("text")
         .attr("clip-path", d => d.clipUid)
         .attr("font-weight", d => d === root ? "bold" : null)
+        .classed("treemap-root", d => d === root)
+
       .selectAll("tspan")
       .data(d => {
-        return [d.data.name, d.data.code]
-        // return (d === root ? `${name(d)}/` : d.data.name).split(/(?=[A-Z][^A-Z])/g).concat(format(d.data.code))
+         if (d === root)
+            return [
+               { type: 'svg-header', text: `${d.data.fullPath}/` },
+               { type: 'svg-subtitle number0', text: d.data.codeDetail.join(', ') }
+            ]
+
+         const codeDetailMapped = d.data.codeDetail.map((text, i) => ({ text, type: `svg-subtitle number${i + 1}`}))
+
+         if (codeDetailMapped.length > 1)
+            return [
+               { type: 'svg-header', text: d.data.name },
+               { type: 'svg-subtitle number0', text: `${d.data.code} line of codes in total`}
+            ]
+         else
+            return [
+               { type: 'svg-header', text: d.data.name },
+               ...codeDetailMapped
+            ]
+
+      //   return (d === root ? `${name(d)}/` : d.data.name).split(/(?=[A-Z][^A-Z])/g).concat(format(d.data.code))
         }
       )
       .join("tspan")
+        .attr("class", (d, i) => `${d.type}`)
         .attr("x", 3)
         .attr("y", (d, i, nodes) => `${(i === nodes.length - 1) * 0.3 + 1.1 + i * 0.9}em`)
-        .attr("fill-opacity", (d, i, nodes) => i === nodes.length - 1 ? 0.7 : null)
-        .attr("font-weight", (d, i, nodes) => i === nodes.length - 1 ? "normal" : null)
-        .text((d, i) => i === 0 ? d : `${d} lines of code`);
+      //   .attr("fill-opacity", (d, i, nodes) => i === nodes.length - 1 ? 0.7 : null)
+      //   .attr("font-weight", (d, i, nodes) => i === nodes.length - 1 ? "normal" : null)
+        .text((d, i) => d.text || d);
 
     group.call(position, root);
   }
@@ -130,9 +165,20 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
     const groups = group.selectAll("g")
         .attr("transform", d => d === root ? `translate(0,-30)` : `translate(${x(d.x0)},${y(d.y0)})`)
 
+    const nonTransitionGroup = d3.select(group.node())
+    const data = d3.select(group.node()).selectAll('g').data()
+   //  const extent = d3.extent(data.map((d) => d.data.levelsBeneath))
+    const extent = [0, root.data.root.levelsBeneath]
+    const opacityScale = d3.scaleLinear().domain(extent).range([1, 0.5])
+
     const rects = groups.select("rect")
         .attr("width", d => d === root ? width : x(d.x1) - x(d.x0))
-        .attr("height", d => d === root ? 30 : y(d.y1) - y(d.y0));
+        .attr("height", d => d === root ? topBarHeight : y(d.y1) - y(d.y0))
+      //   .attr("fill-opacity", d => d === root ? 1 : opacityScale(d.data.levelsBeneath))
+        .attr("fill-opacity", d => d === root ? 1 : d.data.levelsBeneath  === 0 ? 1 : opacityScale(d.data.levelsBeneath))
+
+    nonTransitionGroup.selectAll("g").select("rect")
+        .classed("treemap-root", d => d === root)
 
     const texts = groups.select('text')
   }
@@ -173,23 +219,9 @@ const generateZoomableTreemap = ({ width, height, data, container }) => {
         .call(t => group1.transition(t)
           .call(position, d.parent));
   }
-
-  // Variables keepin track of current & previous path
-  // 
-  const state = {
-    history: [], // nodes of focus
-    currentHistoryIndex: 0, // current index of focus in history
-    layout: null,
-  }
-
   /**
    * Treemap code is adapted from https://observablehq.com/@d3/zoomable-treemap
    */
-
-
-
-
-  // render()
 };
 
 class TreeNode {
@@ -197,8 +229,6 @@ class TreeNode {
     Object.assign(this, args);
     this.children = [];
   }
-  
-  eachBefore() {}
 
   put(path, detail) {
     if (path.length === 1) {
@@ -238,47 +268,85 @@ class TreeNode {
     return [...this.children.map((child) => child.allChildren)]
   }
 
+  get fullPath() {
+   if (!this.parent) return ''
+   return `${this.parent.fullPath}/${this.name}`
+  }
+
+  get depth() {
+   if (!this.parent) return 0
+   return this.parent.depth + 1
+  }
+
+  get levelsBeneath() {
+   if (this.children.length === 0) return 0
+   return this.children.map((child) => child.levelsBeneath).reduce((p, c) => Math.max(p, c), 0) + 1
+  }
+
+  get root () {
+   if (!this.parent) return this
+   return this.parent.root
+  }
+
   get isLeaf() {
     return this.children.length === 0;
   }
 
-  get type() { 
-    return this.isLeaf ? 'file' : 'folder' 
+  get isRoot() {
+   return !this.parent
+  }
+
+  get type() {
+    return this.isLeaf ? 'file' : 'folder'
   }
 
   get codeTypes() {
     return !this.byLanguage ? [] : Object.keys(this.byLanguage)
   }
 
+  get codeDetail () {
+   if (this.isLeaf) return [`${this.code} lines of ${this.language}`]
+   if (!this.byLanguage) return [ this.code ]
+
+   const entries = Object.entries(this.byLanguage)
+   entries.sort((a, b) => a[1] - b[1])
+   return entries.map(([language, lines]) => `${lines.code} lines of ${language}`)
+  }
+
   computeTotalsBottomUp() {
     if (this.children.length > 0) {
-      const myStats = this.children.reduce(
-        (result, child) => {
+      const myStats = {
+         total: { code: 0, comment: 0, blank: 0 },
+         byLanguage: { }
+      }
+
+      this.children.forEach(
+        (child) => {
           child.computeTotalsBottomUp();
           const { code, comment, blank } = child;
-          result.total.code += code;
-          result.total.comment += comment;
-          result.total.blank += blank;
+          myStats.total.code += code;
+          myStats.total.comment += comment;
+          myStats.total.blank += blank;
 
           if (child.isLeaf) {
             const { language } = child;
-            if (!(language in result.byLanguage)) {
-              result.byLanguage[language] = { code: 0, comment: 0, blank: 0 };
+            if (!(language in myStats.byLanguage)) {
+              myStats.byLanguage[language] = { code: 0, comment: 0, blank: 0 };
             }
 
-            result.byLanguage[language].code += code;
-            result.byLanguage[language].comment += comment;
-            result.byLanguage[language].blank += blank;
+            myStats.byLanguage[language].code += code;
+            myStats.byLanguage[language].comment += comment;
+            myStats.byLanguage[language].blank += blank;
           } else {
-            Object.entries(child.byLanguage).forEach(([lang, counts]) => {
-              if (lang in result.byLanguage) {
-                Object.keys(result.byLanguage[lang]).forEach(
-                  (k) => (result.byLanguage[lang][k] += counts[k])
-                );
-              } else result.byLanguage[lang] = counts;
-            });
-          }
-          return result;
+            Object.entries(child.byLanguage)
+                  .forEach(([lang, counts]) => {
+                     if (lang in myStats.byLanguage) {
+                        Object.keys(myStats.byLanguage[lang]).forEach(
+                           (k) => (myStats.byLanguage[lang][k] += counts[k])
+                        );
+                     } else myStats.byLanguage[lang] = { ...counts };
+                     });
+                  }
         },
         {
           total: { code: 0, comment: 0, blank: 0 },
@@ -286,20 +354,27 @@ class TreeNode {
         }
       );
 
+      const sumByLanguage = Object.values(myStats.byLanguage).reduce((p, c) => p + c.code, 0)
+      console.log(`name=${this.name}, sumByLanguage=${sumByLanguage}, total code=${myStats.total.code}`)
+      if (sumByLanguage !== myStats.total.code) {
+         console.log("STOPPP")
+      }
+
       Object.assign(this, myStats.total);
-      this.byLanguage = myStats.byLanguage;
+      Object.values(myStats.byLanguage).forEach((info) => Object.freeze(info))
+      this.byLanguage = Object.freeze(myStats.byLanguage);
     }
   }
 }
 
-const parseData = async (url) => {
+const parseData = async (url, splitPathBy) => {
   const result = await fetch(url);
   const json = await result.json();
 
   const root = new TreeNode();
   Object.entries(json).forEach(([path, info]) => {
     const { language, code, comment, blank } = info;
-    const splitPath = path.split("/client/")[1].split("/");
+    const splitPath = path.split(splitPathBy)[1].split("/");
     root.put([...splitPath, language], { code, comment, blank });
   });
 
@@ -307,10 +382,10 @@ const parseData = async (url) => {
   return root.children[0]
 };
 
-const showData = async ({ rawData, inContainer }) => {
+const showData = async ({ rawData, inContainer, splitPathBy }) => {
   const { width, height } = inContainer.getBoundingClientRect();
 
-  const data = await parseData(rawData);
+  const data = await parseData(rawData, splitPathBy);
 
   generateZoomableTreemap({ width, height, data, container: inContainer });
 };
@@ -323,22 +398,65 @@ export default {
     await showData({
       rawData: "assets/linecount_data/results_src.json",
       inContainer: this.$refs.codebase_client,
+      splitPathBy: '/client/'
     });
     await showData({
-      rawData: "assets/linecount_data/results_src.json",
+      rawData: "assets/linecount_data/results_testserver.json",
       inContainer: this.$refs.codebase_testserver,
+      splitPathBy: '/server/'
     });
     await showData({
-      rawData: "assets/linecount_data/results_src.json",
+      rawData: "assets/linecount_data/results_application_server.json",
       inContainer: this.$refs.codebase_appserver,
+      splitPathBy: '/server/'
     });
   },
 };
 </script>
 
+<style>
+text:not(.treemap-root)>.svg-header { fill: white; font-weight: 600; }
+text:not(.treemap-root) { fill: #ffffff9e }
+
+text.treemap-root {
+    fill: #292929;
+}
+
+text.treemap-root>.svg-subtitle {
+   fill: black;
+   font-size: 12px;
+}
+
+.svg-rect.treemap-root {
+    fill: white;
+}
+
+.svg-subtitle {}
+.svg-subtitle.number0{}
+.svg-subtitle.number1{}
+.svg-subtitle.number2{}
+.svg-subtitle.number3{}
+.svg-subtitle.number4{}
+.svg-subtitle.number5{}
+
+.svg-rect {
+   fill: #494992;
+}
+
+</style>
+
 <style scoped>
+
+.treemap-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .codebase-treemap-container {
-  width: 100%;
-  height: 60vh;
+   width: 100%;
+   height: 60vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 </style>
