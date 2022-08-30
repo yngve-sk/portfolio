@@ -443,6 +443,10 @@ text.treemap-root>.svg-subtitle {
    fill: #494992;
 }
 
+.svg-rect:hover {
+  fill: burlywood;
+}
+
 </style>
 
 <style scoped>
