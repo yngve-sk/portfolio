@@ -43,7 +43,7 @@ export default {
         },
         {
           tags: ['software architecture', 'medical volume data analysis', 'front end', 'backend'],
-          technologies: [ 'webgl', 'javascript', 'html', 'css', 'angular.js' ],
+          technologies: [ 'webgl', 'javascript', 'html', 'css', 'angular.js', 'websockets' ],
           title: "In-browser Medical Volume Renderer",
           image: { src: "/assets/images2/webglvr_windowing-addsubview.gif" },
           link: "webgl-volume",
@@ -67,7 +67,7 @@ export default {
           title: "DevOps Based Course System",
           image: require("../../assets/images2/gitlab-ci-pipelines.png"),
           link: "course-management-sys",
-          description: "System for managing grading, students and TA's in programming courses."
+          description: "System for managing grading, students and teaching assisants in programming courses."
         },
         // {
         //   title: "Mesh Painter",
