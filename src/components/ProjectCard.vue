@@ -79,9 +79,7 @@ export default {
 .tags-wrapper {
     display: flex;
     align-items: center;
-    /* margin-left: 30px; */
     flex-flow: wrap;
-    background: #66666626;
     padding-left: 30px;
     padding-right: 30px;
 }
