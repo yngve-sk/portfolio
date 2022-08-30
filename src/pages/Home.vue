@@ -95,11 +95,11 @@ export default {
         icon: mdiPresentation,
         link: '/presentations'
       },
-      {
-        name: 'About',
-        icon: mdiInformationVariant,
-        link: '/about'
-      }
+      // {
+      //   name: 'About',
+      //   icon: mdiInformationVariant,
+      //   link: '/about'
+      // }
     ]
   }),
   mounted() {
