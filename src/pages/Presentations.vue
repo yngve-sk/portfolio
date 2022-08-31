@@ -17,31 +17,17 @@ export default {
     return {
       presentations: [
         {
-          title: "Invited Paper @ IEEE VIS 2020 (SplitStreams)",
-          description: `IEEE VIS is the most prestigious conference for data visualization.
-          I was invited to present my IEEE TVCG paper SplitStreams.
+          title: "Invited Paper @ EuroVis 2021 (Visception)",
+          description: `EuroVis is one of the most prestigeous conferences for data visualization. Here, I was invited to present Visception which was published in Computers & Graphics.
           `,
-          video: "https://www.youtube-nocookie.com/embed/mIadBtuBq1w?start=5336",
+          video: "https://www.youtube-nocookie.com/embed/OGT81yms-G4",
         },
         {
-          title: "Invited Paper @ IEEE VIS 2020 (Vis-a-Vis)",
+          title: "Invited Paper @ IEEE VIS 2021 (Semantic Snapping)",
           description: `IEEE VIS is the most prestigious conference for data visualization.
-          I was invited to present my IEEE TVCG paper Vis-a-Vis.
+          I was invited to present my IEEE TVCG paper Semantic Snapping for Guided Multi-view Visualization Design.
           `,
-          video: "https://www.youtube-nocookie.com/embed/h1isZznN1oI?start=1567",
-        },{
-          title: "Short Paper @ EuroGraphics 2020 (Organic Narrative Charts)",
-          description: `EGEV2020 was a joint EuroVis / Eurographics and is the biggest visualization conference in Europe.
-          I presented my short paper Organic Narrative Charts.
-          `,
-          video: "https://www.youtube-nocookie.com/embed/Fr7TDvw_YkA?start=3139",
-        },
-        {
-          title: "Invited Talk @ Knowit Bergen",
-          description: `In September 2019, I was invited to the consultancy company Knowit in Bergen to give a presentation about my current research.
-          The presentation was targeted at employees in industry with a computer science background.
-          `,
-          video: "https://www.youtube-nocookie.com/embed/Q4MAgDZn0Sw",
+          video: "https://www.youtube-nocookie.com/embed/BpquNW3kPUE",
         }
       ]
     };
