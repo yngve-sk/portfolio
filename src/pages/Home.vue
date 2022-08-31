@@ -1,7 +1,7 @@
 <template>
   <v-container id="home-container" v-resize="onResize" pa-0 fluid>
     <div class="wrapper" :style="{width: contentSize.x, height: contentSize.y}">
-      <div id="imageContainer" style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">
+      <div id="imageContainer" style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; position: relative;">
         <img
           id="profileImage"
           :src="`./assets/svg/yngve_vectorized.svg`"
@@ -147,22 +147,29 @@ export default {
 }
 
 #linkWrapper {
-    flex: 10;
+  flex: 10;
     position: absolute;
     left: 6%;
     top: 40%;
-    height: 40%;
+    /* height: 40%; */
     /* width: 100%; */
     padding-right: 25px;
     padding-left: 25px !important;
     background: #f0d7b9ad;
     border-bottom-right-radius: 10px;
-    border-radius: 10px
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pageLink {
   width: -moz-fit-content;
   width: 100%;
   min-width: fit-content;
+  margin: 10px;
+  padding: 2px;
+  box-shadow: 2px 2px 10px black;
 }
 
 .pageLink>a { width: 100%; }

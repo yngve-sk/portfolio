@@ -24,6 +24,16 @@
       </v-img>
       <v-card-title v-text="title" />
       <div class="tags-wrapper">
+        <p>{{ projects.length === 0 ? '' : projects.length === 1 ? 'Project:' : 'Projects:' }}</p>
+        <div
+          class="project"
+          v-for="project in projects"
+          :key="project">
+          {{ project }}
+        </div>
+      </div>
+      <div class="tags-wrapper">
+        <p>{{ tags.length === 0 ? '' : tags.length === 1 ? 'Role:' : 'Roles:' }}</p>
         <div
           class="tag"
           v-for="tag in tags"
@@ -32,6 +42,7 @@
         </div>
       </div>
       <div class="tags-wrapper">
+        <p>Technologies: </p>
         <div
           class="technology"
           v-for="technology in technologies"
@@ -53,6 +64,10 @@ export default {
       default: () => []
     },
     technologies: {
+      type: Array,
+      default: () => []
+    },
+    projects: {
       type: Array,
       default: () => []
     },
@@ -84,6 +99,17 @@ export default {
     padding-right: 30px;
 }
 
+.tags-wrapper>p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: #ffffffa3;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
 .tag {
     padding: 4px;
     background: #00000075;
@@ -103,6 +129,17 @@ export default {
     padding-right: 3px;
     padding-left: 3px;
     border: thin #ffffff40 solid;
+}
+
+.project {
+  padding: 8px;
+    background: #2c2c2c;
+    box-shadow: 0px 0px 8px #ffffff5c;
+    margin: 10px;
+    /* border: thin white solid; */
+    border-radius: 5px;
+    font-size: 16px;
+    background: #0000003d;
 }
 
 .image {

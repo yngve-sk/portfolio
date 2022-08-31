@@ -18,14 +18,16 @@ export default {
     return {
       projects: [
         {
+          projects: [ 'Master\'s  Project', 'MetaVis' ],
           tags: [ 'software architecture', 'full stack', 'front end', 'backend'],
           technologies: [ 'd3.js', 'javascript', 'html', 'css', 'stylus', 'less', 'arrow.js', 'lodash.js', 'couchdb', 'pouchdb', 'vue.js', 'angular.js'],
           title: "Nested Visualization Editor",
-          image: {src: "/assets/images/vsc_visception-gui.png"},
+          image: {src: "/assets/images/vsc-twts-demo.gif"},
           link: "visception",
           description: "In-browser visual builder for designing highly detailed nested visualizations."
         },
         {
+          projects: [ 'MetaVis' ],
           tags: ['front end', 'computer vision' ],
           technologies: [ 'd3.js', 'typescript', 'javascript', 'html', 'css', 'stylus','vue.js', 'html5 canvas' ],
           title: "Computer-vision based force layout",
@@ -34,6 +36,7 @@ export default {
           description: "Force-directed layout that uses computer vision to avoid collisions between arbitrary shape."
         },
         {
+          projects: [ 'MetaVis' ],
           tags: ['front end', 'guided design', 'automatic visualization analysis'],
           technologies: [ 'd3.js', 'javascript', 'html', 'css', 'stylus','vue.js', 'lodash.js' ],
           title: "Semi-automatic vis refinement",
@@ -42,6 +45,7 @@ export default {
           description: "Semi-automatic refinement of multi-view visualizations."
         },
         {
+          projects: [ 'Master\'s  Project' ],
           tags: ['software architecture', 'medical volume data analysis', 'front end', 'backend'],
           technologies: [ 'webgl', 'javascript', 'html', 'css', 'angular.js', 'websockets' ],
           title: "In-browser Medical Volume Renderer",
@@ -62,6 +66,7 @@ export default {
         //   description: "YK-project-2DO."
         // },
         {
+          projects: [ 'PhD Teaching' ],
           tags: ['software architecture', 'DevOps', 'backend'],
           technologies: [ 'git', 'bash', 'kubernetes executor for gitlab', 'python', 'gitpython', 'yml pipelines'],
           title: "DevOps Based Course System",
