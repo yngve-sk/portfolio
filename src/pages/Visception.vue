@@ -73,7 +73,7 @@ export default {
     return {
       data: {
         title: 'Visception',
-        image: require('../../assets/images2/vsc_visception-gui.png'),
+        image: require('../../assets/images/vsc_visception-gui.png'),
         descriptionHTML: `Visception is an editor for creating highly expressive nested visualizations of tabular data, while also controlling the design at different hierarchical levels. Initially implemented in Angular 1, before gradually porting the components over to Vue.js. This was a very (too) ambitious and large project closed source project, with a large codebase and a lot of logic packed into it. <a href="/#/portfolio/visception/codebase">Click here to see the codebase visualized as a zoomable treemap</a>
         `,
         imageArray: [
@@ -98,7 +98,7 @@ export default {
           'cars-ex0.png',
           'cars-ex4.png',
           'cars-ex5.png',
-        ].map((v) => require(`../../assets/images2/vsc_${v}`)),
+        ].map((v) => require(`../../assets/images/vsc_${v}`)),
         video: "https://www.youtube-nocookie.com/embed/avUf14X-UWs"
       }
     };

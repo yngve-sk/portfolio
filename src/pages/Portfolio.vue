@@ -21,7 +21,7 @@ export default {
           tags: [ 'software architecture', 'full stack', 'front end', 'backend'],
           technologies: [ 'd3.js', 'javascript', 'html', 'css', 'stylus', 'less', 'arrow.js', 'lodash.js', 'couchdb', 'pouchdb', 'vue.js', 'angular.js'],
           title: "Nested Visualization Editor",
-          image: {src: "/assets/images2/vsc_visception-gui.png"},
+          image: {src: "/assets/images/vsc_visception-gui.png"},
           link: "visception",
           description: "In-browser visual builder for designing highly detailed nested visualizations."
         },
@@ -29,7 +29,7 @@ export default {
           tags: ['front end', 'computer vision' ],
           technologies: [ 'd3.js', 'typescript', 'javascript', 'html', 'css', 'stylus','vue.js', 'html5 canvas' ],
           title: "Computer-vision based force layout",
-          image: { src: '/assets/images2/cdl_lungs.gif' },
+          image: { src: '/assets/images/cdl_lungs.gif' },
           link: "content-driven-layout",
           description: "Force-directed layout that uses computer vision to avoid collisions between arbitrary shape."
         },
@@ -37,7 +37,7 @@ export default {
           tags: ['front end', 'guided design', 'automatic visualization analysis'],
           technologies: [ 'd3.js', 'javascript', 'html', 'css', 'stylus','vue.js', 'lodash.js' ],
           title: "Semi-automatic vis refinement",
-          image: require("../../assets/images2/semsnap-casestudy2.png"),
+          image: require("../../assets/images/semsnap-casestudy2.png"),
           link: "semantic-snapping",
           description: "Semi-automatic refinement of multi-view visualizations."
         },
@@ -45,7 +45,7 @@ export default {
           tags: ['software architecture', 'medical volume data analysis', 'front end', 'backend'],
           technologies: [ 'webgl', 'javascript', 'html', 'css', 'angular.js', 'websockets' ],
           title: "In-browser Medical Volume Renderer",
-          image: { src: "/assets/images2/webglvr_windowing-addsubview.gif" },
+          image: { src: "/assets/images/webglvr_windowing-addsubview.gif" },
           link: "webgl-volume",
           description: "WebGL+Angular powered medical volume renderer"
         },
@@ -65,7 +65,7 @@ export default {
           tags: ['software architecture', 'DevOps', 'backend'],
           technologies: [ 'git', 'bash', 'kubernetes executor for gitlab', 'python', 'gitpython', 'yml pipelines'],
           title: "DevOps Based Course System",
-          image: require("../../assets/images2/gitlab-ci-pipelines.png"),
+          image: require("../../assets/images/gitlab-ci-pipelines.png"),
           link: "course-management-sys",
           description: "System for managing grading, students and teaching assisants in programming courses."
         },
