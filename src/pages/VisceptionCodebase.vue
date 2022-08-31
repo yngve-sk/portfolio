@@ -12,11 +12,13 @@
     <div class="treemap-wrapper">
       <div ref="codebase_client" class="codebase-treemap-container"></div>
     </div>
+    <br/>
     <p>During development, we were running this client with a test server, letting
     users save designs, and load them on demand:</p>
     <div class="treemap-wrapper">
       <div ref="codebase_testserver" class="codebase-treemap-container"></div>
     </div>
+    <br/>
     <p>I also started (but did not finish) an application server for managing user
     accounts, aspiring to deploy the Visception editor as an online
     visualization design tool.</p>
