@@ -4,7 +4,7 @@ import Home from "./pages/Home.vue";
 import Portfolio from "./pages/Portfolio.vue";
 import Publications from "./pages/Publications.vue";
 import Presentations from "./pages/Presentations.vue";
-import About from "./pages/About.vue";
+// import About from "./pages/About.vue";
 
 import WebGLVolume from './pages/WebGLVolume.vue'
 import Visception from './pages/Visception.vue'
@@ -35,10 +35,10 @@ export default new Router({
       path: "/presentations",
       component: Presentations
     },
-    {
-      path: "/about",
-      component: About
-    },
+    // {
+    //   path: "/about",
+    //   component: About
+    // },
     {
       path: "/portfolio/visception",
       component: Visception

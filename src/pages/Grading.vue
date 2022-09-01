@@ -30,11 +30,11 @@
       >
         <div class="array-imgs">
           <a 
-            href="/assets/images/gitgrade.png"
+            href="/assets/images_compressed/gitgrade.png"
           >
             <img 
               class="array-img"
-              src="/assets/images/gitgrade.png"
+              src="/assets/images_compressed/gitgrade.png"
             >
           </a>
         </div>
@@ -53,7 +53,7 @@ export default {
     return {
       data: {
         title: 'Git-based course management',
-        image: require('../../assets/images/gitlab-ci-pipelines.png'),
+        image: require('../../assets/images_compressed/gitlab-ci-pipelines.png'),
         descriptionHTML: `This system was developed over the course of two semesters of teaching INF100. The core idea was to use existing infrastructure and systems to automate as many of the behind-the-scenes teaching tasks as possible. Leveraging the existing git server, we were able to solve the problems with a very small amount of code. We created a few python scripts that we would run in order to create student repositories for specific tasks, provide automatic grading, fetch and consolidate manual grading feedback to determine who are eligible for exams. Some of these tasks were simply run as cron-jobs. In the second semester, we adopted a more distributed architecture, using git pipelines to automatically perform tasks on every commit by students. This also lead to some performance/uptime guarantee issues, so we had to use multiple runners via Kubernetes, all with the appropriate docker images cached.
         `,
         imageArray: [
@@ -78,7 +78,7 @@ export default {
           'cars-ex0.png',
           'cars-ex4.png',
           'cars-ex5.png',
-        ].map((v) => require(`../../assets/images/vsc_${v}`))
+        ].map((v) => require(`../../assets/images_compressed/vsc_${v}`))
       }
     };
   }

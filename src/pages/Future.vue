@@ -12,7 +12,7 @@ export default {
     return {
       data: {
         title: "More to come ...",
-        image: require("../../assets/images/future.png"),
+        image: require("../../assets/images_compressed/future.png"),
         description: `This website is still under development.
       More completed projects are going to be added in the future.
       `

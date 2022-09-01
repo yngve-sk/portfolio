@@ -62,7 +62,7 @@ export default {
     return {
       data: {
         title: 'WebGL Volume Renderer',
-        image: { src: "/assets/images/webglvr_interact-camera.gif" },
+        image: { src: "/assets/images_compressed/webglvr_interact-camera.gif" },
         descriptionHTML: `This project was built using AngularJS and WebGL to enable for medical volume rendering. Due to medical volume rendering files being large to serve raw, a lightweight WebSocket based server to stream it in chunks was necessary. I really enjoyed the engineering and coordination of the interactions with underlying geometry / data selections, as well as the glsl shader coding which is very much the same as in OpenGL.
         `,
         imageArray: [
@@ -70,7 +70,7 @@ export default {
           'webglvr_windowing-toggleglobal.gif',
           'webglvr_windowing-selectsubview.gif',
           'webglvr_histo-surfaceweighting.gif'
-        ].map((v) => ({ src: `/assets/images/${v}` })),
+        ].map((v) => ({ src: `/assets/images_compressed/${v}` })),
         github: "https://github.com/yngve-sk/Volume-Rendering-WebGL"
         //video: "https://www.youtube-nocookie.com/embed/avUf14X-UWs"
       }

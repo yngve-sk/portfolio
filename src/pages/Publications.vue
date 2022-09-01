@@ -20,7 +20,7 @@ export default {
           image: { src: 'https://vis.uib.no/wp-content/papercite-data/images/Kristiansen-2022-LungsDt.PNG' },
         },
         'Kristiansen-2021-SSG': {
-          image: { src: '/assets/images/semsnapicon.png' },
+          image: { src: '/assets/images_compressed/semsnapicon.png' },
           video: 'https://vis.uib.no/wp-content/papercite-data/vids/Kristiansen-2021-SSG.mp4'
         },
         'Kristiansen-2020-VIV': {

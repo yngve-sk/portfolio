@@ -35,7 +35,7 @@ export default {
           I still love video games.
         </p>
         `,
-        image: require('../../assets/images/about_me.jpg')
+        // image: require('../../assets/images_compressed/about_me.jpg')
       }
     };
   }

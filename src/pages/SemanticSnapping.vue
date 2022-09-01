@@ -25,7 +25,7 @@ export default {
     return {
       data: {
         title: 'Semantic Snapping',
-        image: require("../../assets/images/semsnap-casestudy2.png"),
+        image: require("../../assets/images_compressed/semsnap-casestudy2.png"),
         descriptionHTML: `Semantic Snapping is an experimental approach for guiding multi-view visualization design, implemented on top of the <a href="#/portfolio/visception">Visception</a> system. The core idea is to automatically detect design conflicts or ambiguities <i>between</i> views, and also automatically generate revisions that will resolve those problems. In practice, the user is able to review design ambiguities on a per-view basis, and also view and execute understandable operations by simply clicking them. We expressed relations between views with predicate logic, and corresponding operations. In practice, we implemented these predicate logic rules as functions evaluating and operating on underlying Visception chart specifications.
         `,
         video: "https://www.youtube-nocookie.com/embed/MqN5KyZQF4Q"

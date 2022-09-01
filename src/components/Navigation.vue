@@ -2,7 +2,7 @@
   <v-navigation-drawer v-model="show" absolute right temporary>
     <v-list-item>
       <v-list-item-avatar>
-        <v-img :src="profileImage"></v-img>
+        <!--v-img :src="profileImage"></v-img-->
       </v-list-item-avatar>
 
       <v-list-item-content>
@@ -37,7 +37,7 @@ export default {
   },
   data: () => ({
     show: false,
-    profileImage: require('../../assets/images/profile-160x160.jpg'),
+    // profileImage: require('../../assets/images_compressed/profile-160x160.jpg'),
     pages: [
       {
         name: 'Home',
@@ -59,11 +59,11 @@ export default {
         icon: mdiPresentation,
         link: '/presentations'
       },
-      {
-        name: 'About',
-        icon: mdiInformationVariant,
-        link: '/about'
-      }
+      // {
+      //   name: 'About',
+      //   icon: mdiInformationVariant,
+      //   link: '/about'
+      // }
     ]
   }),
   watch: {

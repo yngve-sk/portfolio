@@ -42,7 +42,7 @@ export default {
     return {
       data: {
         title: 'Vis-a-Vis',
-        image: require('../../assets/images/source.png'),
+        image: require('../../assets/images_compressed/source.png'),
         description: `Vis-a-Vis is a client-server architecture for the visual exploration of code development workflows.
         It improves the users’ understanding of code changes and their impact on the algorithm’s functionality.
         `,
