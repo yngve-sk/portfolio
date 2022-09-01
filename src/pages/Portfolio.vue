@@ -1,7 +1,14 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col v-for="(project, i) in projects" :key="`proj-${i}`" cols="12" sm="6" md="4">
+      <v-col
+        v-for="(project, i) in projects"
+        :key="`proj-${i}`"
+        cols="12"
+        sm="6"
+        md="4"
+        p="1"
+        class="project-card-wrap">
         <project-card v-bind="project" />
       </v-col>
     </v-row>
@@ -18,7 +25,7 @@ export default {
     return {
       projects: [
         {
-          projects: [ 'Master\'s  Project', 'MetaVis' ],
+          projects: [ 'Master  Project', 'MetaVis' ],
           tags: [ 'software architecture', 'full stack', 'front end', 'backend'],
           technologies: [ 'd3.js', 'javascript', 'html', 'css', 'stylus', 'less', 'arrow.js', 'lodash.js', 'couchdb', 'pouchdb', 'vue.js', 'angular.js'],
           title: "Nested Visualization Editor",
@@ -42,10 +49,10 @@ export default {
           title: "Semi-automatic vis refinement",
           image: require("../../assets/images_compressed/semsnap-casestudy2.png"),
           link: "semantic-snapping",
-          description: "Semi-automatic refinement of multi-view visualizations."
+          description: "Automatically detects problems and corresponding solutions multi-view visualizations."
         },
         {
-          projects: [ 'Master\'s  Project' ],
+          projects: [ 'Master  Project' ],
           tags: ['software architecture', 'medical volume data analysis', 'front end', 'backend'],
           technologies: [ 'webgl', 'javascript', 'html', 'css', 'angular.js', 'websockets' ],
           title: "In-browser Medical Volume Renderer",
@@ -56,7 +63,7 @@ export default {
         {
           projects: [ 'PhD Teaching' ],
           tags: ['software architecture', 'DevOps', 'backend'],
-          technologies: [ 'git', 'bash', 'kubernetes executor for gitlab', 'python', 'gitpython', 'yml pipelines'],
+          technologies: [ 'git', 'bash', 'kubernetes executor for gitlab', 'python', 'gitpython', 'gitlab pipelines'],
           title: "DevOps Based Course System",
           image: require("../../assets/images_compressed/gitlab-ci-pipelines.png"),
           link: "course-management-sys",
