@@ -1,5 +1,6 @@
 <template>
    <div class="treemap-wrapper">
+      <p>{{ title }}</p>
       <div ref="codebase_container" class="codebase-treemap-container"></div>
    </div>
  </template>
@@ -93,8 +94,8 @@
          .attr("id", d => (d.leafUid = DOM.uid("leaf")).id)
          .classed("root", d => d === root)
          .attr("class", "svg-rect")
-         .attr("fill", d => d === root ? "#fff" : d.children ? "#ccc" : "#ddd")
-         .attr("stroke", "#fff");
+         .attr("fill", d => d === root ? "#cdf3ff" : d.children ? "#ccc" : "#ddd")
+         .attr("stroke", "none");
 
      node.append("clipPath")
          .attr("id", d => (d.clipUid = DOM.uid("clip")).id)
@@ -374,6 +375,7 @@
    props: {
       rawDataUrl: { type: String, required: true },
       splitPathBy: { type: String, required: true },
+      title: { type: String, required: false },
    },
    data() {
      return {};
@@ -415,6 +417,8 @@
 
  .svg-rect {
     fill: #494992;
+    stroke: white;
+    stroke-width: 0.3px;
  }
 
  .svg-rect:hover {
@@ -432,6 +436,8 @@
     padding: 20px;
     background: #252525;
     margin: 50px;
+    box-shadow: 1px 1px 15px black;
+    flex-flow: column;
  }
  .codebase-treemap-container {
     width: 100%;

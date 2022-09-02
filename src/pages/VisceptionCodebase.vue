@@ -12,18 +12,21 @@
     <zoomable-treemap
       raw-data-url="assets/linecount_data/results_src.json"
       split-path-by="/client/"
+      title="Client codebase (click to zoom)"
     />
     <br/>
     <p>During development, we were running this client with a test server, letting users save designs, and load them on demand:</p>
     <zoomable-treemap
       raw-data-url="assets/linecount_data/results_testserver.json"
       split-path-by="/server/"
+      title="Test server codebase (click to zoom)"
     />
     <br/>
     <p>During this project I also worked on (but did not finish) an application server for managing user accounts, aspiring to deploy the Visception editor as an online visualization design tool.</p>
     <zoomable-treemap
       raw-data-url="assets/linecount_data/results_application_server.json"
       split-path-by="/server/"
+      title="Application server codebase (click to zoom)"
     />
   </div>
 </template>
