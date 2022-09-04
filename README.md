@@ -1,5 +1,5 @@
-# [fabianbolte.de](https://fabianbolte.de)
-This is my personal webpage utilizing:
+# [yngve-sk.github.io](https://yngve-sk.github.io)
+This is my personal webpage (adapted from my former office mate Fabian's site @ [fabianbolte.de](https://fabianbolte.de)) utilizing:
 - Webpack for file bundling
 - Vue.js
 - Vuetify 2 (material design for Vue)
