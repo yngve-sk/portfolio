@@ -88,7 +88,7 @@ export default {
       {
         name: 'Publications',
         icon: mdiNewspaper,
-        link: '/Publications'
+        link: '/publications'
       },
       {
         name: 'Presentations',

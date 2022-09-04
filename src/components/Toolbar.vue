@@ -7,10 +7,16 @@
       </router-link>
     </v-toolbar-title>
     <v-spacer />
-    <v-btn icon href="https://github.com/cadanox" target="_blank">
+    <v-btn icon href="https://www.linkedin.com/in/yngve-sekse-kristiansen-686744249/">
+      <v-icon icon>{{icons.linkedin}}</v-icon>
+    </v-btn>
+    <v-btn icon href="https://gitlab.com/yngve-sk" target="_blank">
+      <v-icon icon>{{icons.gitlab}}</v-icon>
+    </v-btn>
+    <v-btn icon href="https://github.com/yngve-sk" target="_blank">
       <v-icon icon>{{icons.github}}</v-icon>
     </v-btn>
-    <v-btn icon href="mailto:fabian.bolte@web.de">
+    <v-btn icon href="mailto:ykr088@uib.no">
       <v-icon icon>{{icons.email}}</v-icon>
     </v-btn>
     <v-app-bar-nav-icon @click="menuButtonClicked" />
@@ -27,7 +33,7 @@
 </template>
 
 <script>
-import { mdiHome, mdiGithub, mdiEmail } from '@mdi/js'
+import { mdiHome, mdiGithub, mdiEmail, mdiLinkedin, mdiGitlab } from '@mdi/js'
 import Breadcrumbs from './Breadcrumbs.vue';
 
 export default {
@@ -45,7 +51,9 @@ export default {
       icons: {
         home: mdiHome,
         github: mdiGithub,
-        email: mdiEmail
+        gitlab: mdiGitlab,
+        email: mdiEmail,
+        linkedin: mdiLinkedin
       }
     }
   },
