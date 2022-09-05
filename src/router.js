@@ -24,7 +24,7 @@ export default new Router({
       props: () => ({ random: Math.random() })
     },
     {
-      path: "/portfolio",
+      path: "/projects",
       component: Portfolio
     },
     {
@@ -40,35 +40,35 @@ export default new Router({
     //   component: About
     // },
     {
-      path: "/portfolio/visception",
+      path: "/projects/visception",
       component: Visception
     },
     {
-      path: "/portfolio/visception/codebase",
+      path: "/projects/visception/codebase",
       component: VisceptionCodebase
     },
     {
-      path: "/portfolio/webgl-volume",
+      path: "/projects/webgl-volume",
       component: WebGLVolume
     },
     {
-      path: "/portfolio/semantic-snapping",
+      path: "/projects/semantic-snapping",
       component: SemanticSnapping
     },
     {
-      path: "/portfolio/content-driven-layout",
+      path: "/projects/content-driven-layout",
       component: ContentDrivenLayout
     },
     // {
-    //   path: "/portfolio/drags",
+    //   path: "/projects/drags",
     //   component: Drags
     // },
     // {
-    //   path: "/portfolio/d3-window",
+    //   path: "/projects/d3-window",
     //   component: D3Window
     // },
     {
-      path: "/portfolio/course-management-sys",
+      path: "/projects/course-management-sys",
       component: Grading
     },
   ]

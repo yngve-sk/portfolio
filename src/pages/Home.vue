@@ -81,9 +81,9 @@ export default {
     imageAspectRatio: 0,
     pages: [
       {
-        name: 'Portfolio',
+        name: 'Projects',
         icon: mdiBookOpenVariant,
-        link: '/portfolio'
+        link: '/projects'
       },
       {
         name: 'Publications',

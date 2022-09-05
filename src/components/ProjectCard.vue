@@ -1,7 +1,7 @@
 <template>
   <v-hover v-slot="{ hover }">
     <v-card
-      :to="link ? '/portfolio/' + link : undefined"
+      :to="link ? '/projects/' + link : undefined"
       :class="{clickable: link, hovered: hover, 'no-pointer': !link}"
       width="100%"
       height="100%"
